@@ -5,6 +5,6 @@
   "version": "1.0.0",
   "minAppVersion": "1.0.0",
   "repo": "chenbihao/obsidian-theme-dark-clarity",
-  "screenshot": "dark-simple.png",
+  "screenshot": "screenshot.png",
   "modes": ["dark", "light"]
 }
