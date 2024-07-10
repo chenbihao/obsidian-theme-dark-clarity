@@ -16,6 +16,9 @@ settings:
         label: 原神心海配色
         value: theme-genshin-sangonomiya-kokomi
       -
+        label: 铃芽之旅配色
+        value: theme-suzume-no-tojimari
+      -
         label: 简单彩虹配色
         value: theme-rainbow
   - 
@@ -134,7 +137,6 @@ body .modal {
 body.theme-genshin-sangonomiya-kokomi.theme-dark,
 body.theme-genshin-sangonomiya-kokomi.theme-light{
 
-  /* 主题配色 */
   --theme-color: hsl(245, 75%, 63%);
   --text-highlight-bg: hsla(245, 75%, 63%, 0.5);
 
@@ -145,6 +147,30 @@ body.theme-genshin-sangonomiya-kokomi.theme-light{
   --text-title-h5: hsl(17, 55%, 60%);
   --text-title-h6: hsl(11, 59%, 54%);
 }
+
+
+/* 铃芽之旅 */
+body.theme-suzume-no-tojimari.theme-dark,
+body.theme-suzume-no-tojimari.theme-light{
+
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg: hsla(245, 75%, 63%, 0.5);
+
+  --text-title-h1: hsl(214, 86%, 57%);
+  --text-title-h2: hsl(220, 67%, 63%);
+  --text-title-h3: hsl(250, 43%, 71%);
+  --text-title-h4: hsl(309, 39%, 71%);
+  --text-title-h5: hsl(24, 87%, 71%);
+  --text-title-h6: hsl(46, 96%, 72%);
+}
+
+
+
+
+
+
+
+
 
 /* 七彩虹配色*/
 
