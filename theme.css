@@ -16,8 +16,29 @@ settings:
         label: 原神心海配色
         value: theme-genshin-sangonomiya-kokomi
       -
+        label: 原神妮露配色
+        value: theme-genshin-nilou
+      -
+        label: 原神甘雨配色
+        value: theme-genshin-甘雨
+      -
+        label: 原神神里绫华配色
+        value: theme-genshin-神里绫华
+      -
+        label: 原神可莉配色
+        value: theme-genshin-可莉
+      -
+        label: 原神希格雯配色
+        value: theme-genshin-希格雯
+      -
+        label: 原神砂糖配色
+        value: theme-genshin-砂糖
+      -
         label: 铃芽之旅配色
         value: theme-suzume-no-tojimari
+      -
+        label: Jay-叶惠美
+        value: theme-jay
       -
         label: 简单彩虹配色
         value: theme-rainbow
@@ -136,7 +157,6 @@ body .modal {
 /* 原神心海配色 */
 body.theme-genshin-sangonomiya-kokomi.theme-dark,
 body.theme-genshin-sangonomiya-kokomi.theme-light{
-
   --theme-color: hsl(245, 75%, 63%);
   --text-highlight-bg: hsla(245, 75%, 63%, 0.5);
 
@@ -148,13 +168,95 @@ body.theme-genshin-sangonomiya-kokomi.theme-light{
   --text-title-h6: hsl(11, 59%, 54%);
 }
 
+/* 原神妮露配色 */
+body.theme-genshin-nilou.theme-dark,
+body.theme-genshin-nilou.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg:#d64f38;
+
+  --text-title-h1: #3077ce;
+  --text-title-h2: #6aa7c9;
+  --text-title-h3: #bfd9e5;
+  --text-title-h4: #f8f2ec;
+  --text-title-h5: #d48679;
+  --text-title-h6: #d64f38;
+}
+
+body.theme-genshin-甘雨.theme-dark,
+body.theme-genshin-甘雨.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg:hsla(245, 75%, 63%, 0.5);
+
+  --text-title-h1: rgb(97, 108, 170);
+  --text-title-h2: rgb(100, 125, 175);
+  --text-title-h3: rgb(196,216,242);
+  --text-title-h4: rgb(218, 205, 199);
+  --text-title-h5: rgb(177, 97, 101);
+  --text-title-h6: rgb(148, 99, 101);
+}
+
+body.theme-genshin-神里绫华.theme-dark,
+body.theme-genshin-神里绫华.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg:hsla(245, 75%, 63%, 0.5);
+
+  --text-title-h1: #596dbd;
+  --text-title-h2: #6982b9;
+  --text-title-h3: #bccae0;
+  --text-title-h4: #d4d2cf;
+  --text-title-h5: #ae6b81;
+  --text-title-h6: #822d4a;
+}
+
+body.theme-genshin-可莉.theme-dark,
+body.theme-genshin-可莉.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg:#d1462e;
+
+  --text-title-h1: #d1462e;
+  --text-title-h2: #bb4c38;
+  --text-title-h3: #ad5a4d;
+  --text-title-h4: #d89f8a;
+  --text-title-h5: #e0cdb4;
+  --text-title-h6: #e2cac3;
+}
+
+body.theme-genshin-希格雯.theme-dark,
+body.theme-genshin-希格雯.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg:#4d68df;
+
+  --text-title-h1: #7db4e4;
+  --text-title-h2: #aad4f8;
+  --text-title-h3: #f2f5fa;
+  --text-title-h4: #f0a7b7;
+  --text-title-h5: #f390ae;
+  --text-title-h6: #d55276;
+}
+
+body.theme-genshin-砂糖.theme-dark,
+body.theme-genshin-砂糖.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg:#4d68df;
+
+  --text-title-h1: #fff;
+  --text-title-h2: #4d68df;
+  --text-title-h3: #7692c5;
+  --text-title-h4: #deeecf;
+  --text-title-h5: #7ba28c;
+  --text-title-h6: #487d6c;
+}
+
+
+
+
+
 
 /* 铃芽之旅 */
 body.theme-suzume-no-tojimari.theme-dark,
 body.theme-suzume-no-tojimari.theme-light{
-
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg: hsla(245, 75%, 63%, 0.5);
+  --text-highlight-bg: hsl(214, 86%, 57%);
 
   --text-title-h1: hsl(214, 86%, 57%);
   --text-title-h2: hsl(220, 67%, 63%);
@@ -165,18 +267,25 @@ body.theme-suzume-no-tojimari.theme-light{
 }
 
 
+/* Jay */
+body.theme-jay.theme-dark,
+body.theme-jay.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg: #af6435;
 
-
-
-
+  --text-title-h1: #3b9191;
+  --text-title-h2: #46966f;
+  --text-title-h3: #fcdda4;
+  --text-title-h4: #e8b063;
+  --text-title-h5: #c46d37;
+  --text-title-h6: #af6435;
+}
 
 
 
 /* 七彩虹配色*/
-
 body.theme-rainbow.theme-dark,
 body.theme-rainbow.theme-light{
-
   --theme-color: hsl(245, 75%, 63%);
   --text-highlight-bg: hsla(258, 100%, 51%, 0.781);
 
@@ -187,8 +296,21 @@ body.theme-rainbow.theme-light{
   --text-title-h5: hsl(170, 100%, 50%);
   --text-title-h6: hsl(200, 100%, 50%);
   --text-title-h7: hsl(240, 100%, 50%);
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
