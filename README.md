@@ -4,8 +4,6 @@
 
 一款 obsidian 的主题
 
-### 高辨识、有配色
-
 主要以 **高辨识度**、且 h1~h6 标题 **有主题色** 为主。
 
 以 [Dark Moss](https://github.com/sergey900553/obsidian_githublike_theme) 部分内容为基底进行调整。
