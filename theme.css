@@ -443,6 +443,16 @@ img {
 }
 
 
+/* 左边栏横向滚动 */
+.nav-files-container {
+  display: flex;
+  overflow-x: auto; 
+  white-space: nowrap; 
+}
+
+
+
+
 /* search */
 
 /* 搜索文本高亮黄色 */

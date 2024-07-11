@@ -1,3 +1,8 @@
+---
+create: 2024-07-10 14:25:12
+modify: 2024-07-12 17:26:55
+tags: 
+---
 # README
 
 ## Dark Clarity Theme
@@ -10,7 +15,7 @@
 
 以 [Dark Moss](https://github.com/sergey900553/obsidian_githublike_theme) 部分内容为基底进行调整。
 
-支持 Style Setting 插件，可自主选择`主题配色`、`副配色`、`代码配色`。
+支持 Style Setting 插件，可自主选择 `主题配色`、`副配色`、`代码配色`。
 
 多款主题配色：
 
@@ -23,15 +28,17 @@
 
 本主题做出以下改变：
 
+- 界面：左边栏横向滚动
+
 - 字体：启用煮豆黑体的“蝌蚪形逗号”
 - 文本：**粗体** 更明显
 - 图片：加上了边框，清晰边界
 - 引用块：去掉 *斜体*
-- 代码块
+- 代码块：
 	- 尽可能统一渲染与编辑视觉
 	- jetbrains IDE 同款配色
 	- JetBrains Mono 同款字体
-- 其他适配
+- 其他适配：
 	- 当打印 pdf （浅配色）时，适当优化可见性
 
 ## 展示
@@ -47,6 +54,10 @@
 ![theme1](images/theme1.png)
 
 ![theme2](images/theme2.png)
+
+### 左边栏滚动
+
+![](images/左边栏滚动.gif)
 
 ## 主题配色
 
@@ -111,6 +122,8 @@
 ![jetbrains4](images/jetbrains4.png)
 
 ## 其他
+
+### 字体
 
 需要手动安装系统字体：[煮豆黑体](https://github.com/Buernia/Zhudou-Sans)、[JetBrains Mono](https://www.jetbrains.com/lp/mono)
 
