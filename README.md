@@ -1,8 +1,3 @@
----
-create: 2024-07-10 14:25:12
-modify: 2024-07-12 17:26:55
-tags: 
----
 # README
 
 ## Dark Clarity Theme
