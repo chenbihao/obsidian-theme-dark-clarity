@@ -10,38 +10,47 @@ settings:
     description: （标题、高亮等）
     type: class-select
     allowEmpty: true
-    default: theme-genshin-sangonomiya-kokomi
+    default: theme-genshin-sangonomiya-kokomi1
     options:
       -
-        label: 原神心海配色
-        value: theme-genshin-sangonomiya-kokomi
+        label: 原神-心海1
+        value: theme-genshin-sangonomiya-kokomi1
       -
-        label: 原神妮露配色
+        label: 原神-心海2
+        value: theme-genshin-sangonomiya-kokomi2
+      -
+        label: 原神-妮露
         value: theme-genshin-nilou
       -
-        label: 原神甘雨配色
+        label: 原神-甘雨
         value: theme-genshin-甘雨
       -
-        label: 原神神里绫华配色
+        label: 原神-神里绫华
         value: theme-genshin-神里绫华
       -
-        label: 原神可莉配色
+        label: 原神-可莉
         value: theme-genshin-可莉
       -
-        label: 原神希格雯配色
+        label: 原神-希格雯
         value: theme-genshin-希格雯
       -
-        label: 原神砂糖配色
+        label: 原神-砂糖
         value: theme-genshin-砂糖
       -
-        label: 铃芽之旅配色
+        label: 新海诚-铃芽之旅
         value: theme-suzume-no-tojimari
       -
-        label: Jay-叶惠美
+        label: 周杰伦-叶惠美
         value: theme-jay
       -
-        label: 简单彩虹配色
+        label: Nord-Aurora
+        value: theme-Nord-Aurora
+      -
+        label: 荧光彩虹
         value: theme-rainbow
+      -
+        label: ...
+        value: theme-testing
   - 
     id: secondary-theme
     title: 副配色
@@ -51,8 +60,14 @@ settings:
     default: secondary-theme-green-blue
     options:
       -
-        label: 蓝绿搭配
+        label: DarkMoss（蓝+墨绿）
         value: secondary-theme-green-blue
+      -
+        label: Nord 配套（霜冻蓝）
+        value: secondary-theme-Nord
+      -
+        label: ...
+        value: secondary-theme-testing
   - 
     id: code-theme
     title: 代码配色
@@ -64,7 +79,9 @@ settings:
       -
         label: jetbrains dark 同款配色
         value: code-theme-jetbrains-dark
-
+      -
+        label: ...
+        value: code-theme-testing
 */
 
 
@@ -151,12 +168,28 @@ body .modal {
 }
 
 
+
+
+
 /* 主配色  -----------------------------------   */
 
 
-/* 原神心海配色 */
-body.theme-genshin-sangonomiya-kokomi.theme-dark,
-body.theme-genshin-sangonomiya-kokomi.theme-light{
+/* 原神心海配色1 */
+body.theme-genshin-sangonomiya-kokomi1.theme-dark,
+body.theme-genshin-sangonomiya-kokomi1.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg: hsla(245, 75%, 63%, 0.5);
+
+  --text-title-h1: hsl(246, 87%, 69%);
+  --text-title-h2: hsl(245, 75%, 70%);
+  --text-title-h3: hsl(240, 35%, 73%);
+  --text-title-h4: hsl(13, 84%, 89%);
+  --text-title-h5: hsl(17, 51%, 66%);
+  --text-title-h6: hsl(11, 59%, 54%);
+}
+/* 原神心海配色2 */
+body.theme-genshin-sangonomiya-kokomi2.theme-dark,
+body.theme-genshin-sangonomiya-kokomi2.theme-light{
   --theme-color: hsl(245, 75%, 63%);
   --text-highlight-bg: hsla(245, 75%, 63%, 0.5);
 
@@ -239,16 +272,13 @@ body.theme-genshin-砂糖.theme-light{
   --theme-color: hsl(245, 75%, 63%);
   --text-highlight-bg:#4d68df;
 
-  --text-title-h1: #fff;
-  --text-title-h2: #4d68df;
-  --text-title-h3: #7692c5;
+  --text-title-h1: #4d68df;
+  --text-title-h2: #92afe6;
+  --text-title-h3: #ffffff;
   --text-title-h4: #deeecf;
   --text-title-h5: #7ba28c;
   --text-title-h6: #487d6c;
 }
-
-
-
 
 
 
@@ -299,17 +329,44 @@ body.theme-rainbow.theme-light{
 }
 
 
+/* 七彩虹配色*/
+body.theme-rainbow.theme-dark,
+body.theme-rainbow.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg: hsla(258, 100%, 51%, 0.781);
+
+  --text-title-h1: hsl(0, 100%, 50%);
+  --text-title-h2: hsl(40, 100%, 50%);
+  --text-title-h3: hsl(80, 100%, 50%);
+  --text-title-h4: hsl(120, 100%, 50%);
+  --text-title-h5: hsl(170, 100%, 50%);
+  --text-title-h6: hsl(200, 100%, 50%);
+  --text-title-h7: hsl(240, 100%, 50%);
+}
 
 
 
+/* Nord-Aurora  */
+
+body.theme-Nord-Aurora.theme-dark,
+body.theme-Nord-Aurora.theme-light{
+  --theme-color: hsl(245, 75%, 63%);
+  --text-highlight-bg: #6c96c0d0;
+
+  --text-title-h1: #BF616A;
+  --text-title-h2: #D08770;
+  --text-title-h3: #EBCB8B;
+  --text-title-h4: #A3BE8C;
+  --text-title-h5: #B48EAD;
+  --text-title-h6: #b8bcc5;
+}
 
 
+/* 测试用 */
+body.theme-testing.theme-dark,
+body.theme-testing.theme-light{
 
-
-
-
-
-
+}
 
 
 
@@ -337,6 +394,39 @@ body.secondary-theme-green-blue.theme-light{
 
 }
 
+/* Nord */
+body.secondary-theme-Nord.theme-dark,
+body.secondary-theme-Nord.theme-light{
+
+  /* 超链颜色，包含元标签，如果不设置默认为主题色 */
+  --text-accent: #81A1C1;
+  --text-accent1: #81A1C1;
+  --text-accent2: #88C0D0;
+  --text-accent-hover: #81A1C1;
+
+  /* tag 颜色 */
+  --tag-color:#88C0D0;
+  --tag-color-hover:#88C0D0;
+
+  /* 引用颜色 */
+  --quote-color:  #5E81AC;
+
+}
+
+
+/* 测试用 */
+body.secondary-theme-testing.theme-dark,
+body.secondary-theme-testing.theme-light{
+
+
+}
+
+
+
+
+
+
+
 
 /* 代码配色 --------------------------------- */
 
@@ -354,6 +444,10 @@ body.code-theme-jetbrains-dark.theme-light{
   --my--inline-code: var(--cyan); /* 内联代码颜色 */
 }
 
+
+body.code-theme-testing.theme-dark,
+body.code-theme-testing.theme-light{
+}
 
 
 
@@ -377,6 +471,7 @@ body.code-theme-jetbrains-dark.theme-light{
   --code-operator: var(--color-red); 
 }
 */
+
 
 .cm-s-obsidian .HyperMD-codeblock{
   line-height: 1.4;
@@ -449,6 +544,9 @@ img {
   overflow-x: auto; 
   white-space: nowrap; 
 }
+
+
+
 
 
 
