@@ -81,7 +81,7 @@
 
 #### DarkMoss（蓝 + 墨绿）
 
-![](images/Pasted%20image%2020240719113930.png)
+![](images/DarkMoss（蓝%20+%20墨绿）.png)
 
 #### Nord 配套（霜冻蓝）
 
