@@ -1,6 +1,7 @@
 ## Dark Clarity Theme
 
 **Dark Clarity**，一款 obsidian 的主题。
+
 ### 高辨识度、有配色
 
 主要以 **高辨识度**、且 h1~h6 标题 **有主题色** 为主。
@@ -36,7 +37,9 @@
 
 ### 主题整体预览
 
-![theme1](images/theme1.png)
+![](images/theme1.png)
+
+![](images/theme2.png)
 
 ### 左边栏滚动
 
