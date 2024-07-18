@@ -2,7 +2,12 @@
   "name": "Dark Clarity",
   "author": "chenbihao",
   "authorUrl": "https://github.com/chenbihao",
+<<<<<<< HEAD
   "version": "1.0.2",
+=======
+  "version": "1.0.1",
+  "minAppVersion": "1.0.0",
+>>>>>>> 1dceefb9c3c73aa13d6fa62153db9b5f33fe80d1
   "repo": "chenbihao/obsidian-theme-dark-clarity",
   "screenshot": "screenshot.png",
   "modes": ["dark", "light"]
