@@ -6,7 +6,7 @@
 
 主要以 **高辨识度**、且 h1~h6 标题 **有主题色** 为主。
 
-以 [Dark Moss](https://github.com/sergey900553/obsidian_githublike_theme) 部分内容为基底进行调整。
+以 [Dark Moss](https://github.com/sergey900553/obsidian_githublike_theme) 部分内容为基底进行调整，并**兼容浅色**模式。
 
 支持 Style Setting 插件，可自主选择 `主题配色`、`副配色`、`代码配色`。
 
@@ -110,7 +110,7 @@
 	- jetbrains IDE 同款配色
 	- JetBrains Mono 同款字体
 - 其他适配：
-	- 当打印 pdf （浅配色）时，适当优化可见性
+	- 支持浅色模式，优化辨识度，同时避免导出 PDF 时的可见性问题
 
 ### 字体
 
