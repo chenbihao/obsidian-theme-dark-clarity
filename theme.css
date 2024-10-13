@@ -759,6 +759,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title {
     background-color: var(--folder-color1);
+    border-radius: 5px; margin-top: 2px; margin-left: 2px;
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+3) .nav-folder-title,
@@ -766,6 +767,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title {
     background-color: var(--folder-color2);
+    border-radius: 5px; margin-top: 2px; margin-left: 2px;
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+4) .nav-folder-title,
@@ -773,6 +775,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title {
     background-color: var(--folder-color3);
+    border-radius: 5px; margin-top: 2px; margin-left: 2px;
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+5) .nav-folder-title,
@@ -780,6 +783,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title {
     background-color: var(--folder-color4);
+    border-radius: 5px; margin-top: 2px; margin-left: 2px;
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+6) .nav-folder-title,
@@ -787,6 +791,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title {
     background-color: var(--folder-color5);
+    border-radius: 5px; margin-top: 2px; margin-left: 2px;
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+7) .nav-folder-title,
@@ -794,6 +799,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title {
     background-color: var(--folder-color6);
+    border-radius: 5px; margin-top: 2px; margin-left: 2px;
 }
 
 
