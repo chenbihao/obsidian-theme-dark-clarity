@@ -5,11 +5,30 @@ name: Dark Clarity Theme
 id: obsidian-theme-dark-clarity
 settings:
   - 
+      id: my-info-text
+      title: Dark Clarity Theme
+      description: "一款 obsidian 的主题 \n\n 
+      主要以 **高辨识度**、且 h1~h6 标题 **有主题色** 为主 \n\n
+      参考 Dark Moss Theme 部分作为基底，并且进行了多处优化： \n\n
+      - 多款配色选择 \n
+      - 浅色模式时的配色 \n
+      - 优化辨识度（粗体明显、图片边框、引用块去斜体）\n 
+      - 更多可选的优化功能（左边栏横向滚动、左边栏文件夹配色）
+      "
+      type: info-text
+      markdown: true
+  - 
+      id: h1
+      title: 主题配色选择
+      type: heading
+      level: 1
+      collapsed: true
+  - 
     id: main-theme
     title: 主题配色
     description: （标题、高亮等）
     type: class-select
-    allowEmpty: true
+    allowEmpty: false
     default: theme-genshin-sangonomiya-kokomi1
     options:
       -
@@ -49,14 +68,14 @@ settings:
         label: 荧光彩虹
         value: theme-rainbow
       -
-        label: ...
+        label: 制作中...
         value: theme-testing
   - 
     id: secondary-theme
     title: 副配色
     description: （超链、tag 等）
     type: class-select
-    allowEmpty: true
+    allowEmpty: false
     default: secondary-theme-green-blue
     options:
       -
@@ -66,22 +85,54 @@ settings:
         label: Nord 配套（霜冻蓝）
         value: secondary-theme-Nord
       -
-        label: ...
+        label: 制作中...
         value: secondary-theme-testing
   - 
     id: code-theme
     title: 代码配色
     description: （代码高亮方案）
     type: class-select
-    allowEmpty: true
+    allowEmpty: false
     default: code-theme-jetbrains
     options:
       -
         label: jetbrains 同款配色
         value: code-theme-jetbrains
       -
-        label: ...
+        label: 制作中...
         value: code-theme-testing
+  - 
+      id: h2
+      title: 可选项
+      type: heading
+      level: 1
+      collapsed: true
+  - 
+    id: left-roll
+    title: 左边栏横向滚动
+    description: 是否开启左边栏(文件列表)的横向滚动条功能，使长文本完全显示
+    default: true
+    type: class-toggle
+  - 
+    id: folder-color11
+    title: 文件夹配色
+    description: 是否开启左边栏(文件列表)的文件夹配色
+    type: class-select
+    allowEmpty: false
+    default: folder-off
+    options:
+      - folder-off
+      - folder-simple
+      - folder-follow-theme
+  - 
+      id: folder-alpha
+      title: 文件夹配色透明度
+      description: 用于配置文件夹配色的透明度
+      type: variable-number-slider
+      default: 0.2
+      min: 0.01
+      max: 1
+      step: 0.01
 */
 
 
@@ -125,8 +176,12 @@ body .modal {
   --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
   --panel-border-color: #18191e;
 }
+  
 
-.theme-dark,.theme-light {
+/* .theme-dark,.theme-light {} */
+
+/* 字体 */
+* {
   --gray-1: #5C6370;
   --red: #ff0f44;
   --peach: #ff5555;
@@ -146,18 +201,12 @@ body .modal {
   --green-light: #42accd;
 
   --font-weight-title: 600;
-  /* --font-monospace: "Consolas", "Fira Code", "Source Code Pro", "Droid Sans Mono", "Monoid", "Arial", sans-serif; */
   --line-height-headers: 1;
   --file-line-width: 1000px;
 
   --search-match-color: #ffff00;
   --search-other-match-color: #ff9632;
 
-}
-
-
-/* 字体 */
-* {
   /* 默认字体 */
   /* font-family: '煮豆黑体', '微软雅黑', "Segoe UI", sans-serif; */
   --default-font: '煮豆黑体', '微软雅黑', "Segoe UI", sans-serif;
@@ -165,150 +214,223 @@ body .modal {
 
   /* 代码字体 */
   --font-monospace: 'JetBrains Mono NL', 'JetBrains Mono',Consolas, Monaco,"等距更纱黑体 SC", monospace ;
+
+  /* 文件夹配色 */
+  --folder-color0: hsl( 214 21% 31% / var(--folder-alpha));
 }
 
 
 
-
-
-/* 主配色  -----------------------------------   */
+/* 主配色  -------------------------------------------------------------------   */
 
 
 /* 原神心海配色1 */
 body.theme-genshin-sangonomiya-kokomi1.theme-dark{
-  --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg: hsla(245, 75%, 63%, 0.5);
-  --text-title-h1: hsl(246, 87%, 69%);
-  --text-title-h2: hsl(245, 75%, 70%);
-  --text-title-h3: hsl(240, 35%, 73%);
-  --text-title-h4: hsl(13, 84%, 89%);
-  --text-title-h5: hsl(17, 51%, 66%);
-  --text-title-h6: hsl(11, 59%, 54%);
+  --theme-color: hsl(245 75% 63%);
+  --text-highlight-bg: hsl(245 75% 63% 0.5);
+  --text-title-h1: hsl(246 87% 69%);
+  --text-title-h2: hsl(245 75% 70%);
+  --text-title-h3: hsl(240 35% 73%);
+  --text-title-h4: hsl(13 84% 89%);
+  --text-title-h5: hsl(17 51% 66%);
+  --text-title-h6: hsl(11 59% 54%);
+  --folder-color1: hsl( 246 87% 69% / var(--folder-alpha));
+  --folder-color2: hsl( 245 75% 70% / var(--folder-alpha));
+  --folder-color3: hsl( 240 35% 73% / var(--folder-alpha));
+  --folder-color4: hsl( 13 84% 89%  / var(--folder-alpha));
+  --folder-color5: hsl( 17 51% 66%  / var(--folder-alpha));
+  --folder-color6: hsl( 11 59% 54%  / var(--folder-alpha));
 }
 body.theme-genshin-sangonomiya-kokomi1.theme-light{
-  --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg: hsla(245, 100%, 78%, 0.521);
-  --text-title-h1: hsl(246, 87%, 69%);
-  --text-title-h2: hsl(245, 89%, 75%);
-  --text-title-h3: hsl(240, 100%, 84%);
-  --text-title-h4: hsl(14, 100%, 83%);
-  --text-title-h5: hsl(17, 91%, 77%);
-  --text-title-h6: hsl(11, 89%, 63%);
+  --theme-color: hsl(245 75% 63%);
+  --text-highlight-bg: hsl(245 100% 78% 0.52);
+  --text-title-h1: hsl(246 87% 69%);
+  --text-title-h2: hsl(245 89% 75%);
+  --text-title-h3: hsl(240 99% 84%);
+  --text-title-h4: hsl(14  99% 83%);
+  --text-title-h5: hsl(17  91% 77%);
+  --text-title-h6: hsl(11  89% 63%);
+  --folder-color1: hsl( 246 87% 69%  / var(--folder-alpha));
+  --folder-color2: hsl( 245 89% 75%  / var(--folder-alpha));
+  --folder-color3: hsl( 240 99% 84%  / var(--folder-alpha));
+  --folder-color4: hsl( 14  99% 83%  / var(--folder-alpha));
+  --folder-color5: hsl( 17  91% 77%  / var(--folder-alpha));
+  --folder-color6: hsl( 11  89% 63%  / var(--folder-alpha));
 }
 
 
 /* 原神心海配色2 */
 body.theme-genshin-sangonomiya-kokomi2.theme-dark,
 body.theme-genshin-sangonomiya-kokomi2.theme-light{
-  --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg: hsla(245, 75%, 63%, 0.5);
-  --text-title-h1: hsl(246, 100%, 63%);
-  --text-title-h2: hsl(245, 75%, 63%);
-  --text-title-h3: hsl(240, 44%, 65%);
-  --text-title-h4: hsl(14, 91%, 79%);
-  --text-title-h5: hsl(17, 55%, 60%);
-  --text-title-h6: hsl(11, 59%, 54%);
+  --theme-color: hsl(245 75% 63%);
+  --text-highlight-bg: hsl(245 75% 63% 0.5);
+  --text-title-h1: hsl(246 99% 63%);
+  --text-title-h2: hsl(245 75% 63%);
+  --text-title-h3: hsl(240 44% 65%);
+  --text-title-h4: hsl(14  91% 79%);
+  --text-title-h5: hsl(17  55% 60%);
+  --text-title-h6: hsl(11  59% 54%);
+  --folder-color1: hsl( 246 99% 63%  / var(--folder-alpha));
+  --folder-color2: hsl( 245 75% 63%  / var(--folder-alpha));
+  --folder-color3: hsl( 240 44% 65%  / var(--folder-alpha));
+  --folder-color4: hsl( 14  91% 79%  / var(--folder-alpha));
+  --folder-color5: hsl( 17  55% 60%  / var(--folder-alpha));
+  --folder-color6: hsl( 11  59% 54%  / var(--folder-alpha));
 }
 
 /* 原神妮露配色 */
 body.theme-genshin-nilou.theme-dark{
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg:#d64f38;
-  --text-title-h1: #3077ce;
-  --text-title-h2: #6aa7c9;
-  --text-title-h3: #bfd9e5;
-  --text-title-h4: #f8f2ec;
-  --text-title-h5: #d48679;
-  --text-title-h6: #d64f38;
+  --text-highlight-bg:hsl(9 66% 53%);
+  --text-title-h1: hsl(213 62% 50%);
+  --text-title-h2: hsl(201 47% 60%);
+  --text-title-h3: hsl(199 42% 82%);
+  --text-title-h4: hsl(30 46%  95%);
+  --text-title-h5: hsl(9  51%  65%);
+  --text-title-h6: hsl(9  66%  53%);
+  --folder-color1: hsl( 213 62% 50%  / var(--folder-alpha));
+  --folder-color2: hsl( 201 47% 60%  / var(--folder-alpha));
+  --folder-color3: hsl( 199 42% 82%  / var(--folder-alpha));
+  --folder-color4: hsl( 30 46%  95%  / var(--folder-alpha));
+  --folder-color5: hsl( 9  51%  65%  / var(--folder-alpha));
+  --folder-color6: hsl( 9  66%  53%  / var(--folder-alpha));
 }
 body.theme-genshin-nilou.theme-light{
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg:#f7684faf;
-  --text-title-h1: #3985e2;
-  --text-title-h2: #60c7ff;
-  --text-title-h3: #a4e2ff;
-  --text-title-h4: #ffd9b3;
-  --text-title-h5: #ffa387;
-  --text-title-h6: #f55d42;
+  --text-highlight-bg:hsla(9 91% 64% 0.686);
+  --text-title-h1: hsl(213 74%  55%);
+  --text-title-h2: hsl(201 100% 69%);
+  --text-title-h3: hsl(199 100% 82%);
+  --text-title-h4: hsl(30  100% 85%);
+  --text-title-h5: hsl(14  100% 76%);
+  --text-title-h6: hsl(9   90%  61%);
+  --folder-color1: hsl( 213 74%  55%  / var(--folder-alpha));
+  --folder-color2: hsl( 201 100% 69%  / var(--folder-alpha));
+  --folder-color3: hsl( 199 100% 82%  / var(--folder-alpha));
+  --folder-color4: hsl( 30  100% 85%  / var(--folder-alpha));
+  --folder-color5: hsl( 14  100% 76%  / var(--folder-alpha));
+  --folder-color6: hsl( 9   90%  61%  / var(--folder-alpha));
 }
 
 body.theme-genshin-甘雨.theme-dark,
 body.theme-genshin-甘雨.theme-light{
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg:hsla(245, 75%, 63%, 0.5);
-  --text-title-h1: rgb(97, 108, 170);
-  --text-title-h2: rgb(100, 125, 175);
-  --text-title-h3: rgb(196,216,242);
-  --text-title-h4: rgb(218, 205, 199);
-  --text-title-h5: rgb(177, 97, 101);
-  --text-title-h6: rgb(148, 99, 101);
+  --text-highlight-bg:hsl(245, 75%, 63%, 0.5);
+  --text-title-h1: hsl(231 30%  52%);
+  --text-title-h2: hsl(220 32%  54%);
+  --text-title-h3: hsl(214 64%  86%);
+  --text-title-h4: hsl(19  20%  82%);
+  --text-title-h5: hsl(357 34%  54%);
+  --text-title-h6: hsl(358 20%  48%);
+  --folder-color1: hsl( 231 30%  52%  / var(--folder-alpha));
+  --folder-color2: hsl( 220 32%  54%  / var(--folder-alpha));
+  --folder-color3: hsl( 214 64%  86%  / var(--folder-alpha));
+  --folder-color4: hsl( 19  20%  82%  / var(--folder-alpha));
+  --folder-color5: hsl( 357 34%  54%  / var(--folder-alpha));
+  --folder-color6: hsl( 358 20%  48%  / var(--folder-alpha));
 }
 
 body.theme-genshin-神里绫华.theme-dark,
 body.theme-genshin-神里绫华.theme-light{
   --theme-color: hsl(245, 75%, 63%);
   --text-highlight-bg:hsla(245, 75%, 63%, 0.5);
-  --text-title-h1: #596dbd;
-  --text-title-h2: #6982b9;
-  --text-title-h3: #bccae0;
-  --text-title-h4: #d4d2cf;
-  --text-title-h5: #ae6b81;
-  --text-title-h6: #822d4a;
+  --text-title-h1: hsl(228 43% 55%);
+  --text-title-h2: hsl(221 36% 57%);
+  --text-title-h3: hsl(217 37% 81%);
+  --text-title-h4: hsl(36  5%  82%);
+  --text-title-h5: hsl(340 29% 55%);
+  --text-title-h6: hsl(340 49% 34%);
+  --folder-color1: hsl( 228 43% 55%  / var(--folder-alpha));
+  --folder-color2: hsl( 221 36% 57%  / var(--folder-alpha));
+  --folder-color3: hsl( 217 37% 81%  / var(--folder-alpha));
+  --folder-color4: hsl( 36  5%  82%  / var(--folder-alpha));
+  --folder-color5: hsl( 340 29% 55%  / var(--folder-alpha));
+  --folder-color6: hsl( 340 49% 34%  / var(--folder-alpha));
 }
 
 body.theme-genshin-可莉.theme-dark,
 body.theme-genshin-可莉.theme-light{
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg:#d1462e;
-  --text-title-h1: #d1462e;
-  --text-title-h2: #bb4c38;
-  --text-title-h3: #ad5a4d;
-  --text-title-h4: #d89f8a;
-  --text-title-h5: #e0cdb4;
-  --text-title-h6: #e2cac3;
+  --text-highlight-bg:hsl(9, 64%, 50%);
+  --text-title-h1: hsl(9  64% 50%);
+  --text-title-h2: hsl(9  54% 48%);
+  --text-title-h3: hsl(8  38% 49%);
+  --text-title-h4: hsl(16 50% 69%);
+  --text-title-h5: hsl(34 42% 79%);
+  --text-title-h6: hsl(14 35% 83%);
+  --folder-color1: hsl( 9  64% 50%  / var(--folder-alpha));
+  --folder-color2: hsl( 9  54% 48%  / var(--folder-alpha));
+  --folder-color3: hsl( 8  38% 49%  / var(--folder-alpha));
+  --folder-color4: hsl( 16 50% 69%  / var(--folder-alpha));
+  --folder-color5: hsl( 34 42% 79%  / var(--folder-alpha));
+  --folder-color6: hsl( 14 35% 83%  / var(--folder-alpha));
 }
 
 body.theme-genshin-希格雯.theme-dark{
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg:#4d68df;
-  --text-title-h1: #7db4e4;
-  --text-title-h2: #aad4f8;
-  --text-title-h3: #f2f5fa;
-  --text-title-h4: #f0a7b7;
-  --text-title-h5: #f390ae;
-  --text-title-h6: #d55276;
+  --text-highlight-bg:hsl(229, 70%, 59%);
+  --text-title-h1: hsl(208 66% 69%);
+  --text-title-h2: hsl(208 85% 82%);
+  --text-title-h3: hsl(217 44% 96%);
+  --text-title-h4: hsl(347 71% 80%);
+  --text-title-h5: hsl(342 80% 76%);
+  --text-title-h6: hsl(344 61% 58%);
+  --folder-color1: hsl(  208 66% 69% / var(--folder-alpha));
+  --folder-color2: hsl(  208 85% 82% / var(--folder-alpha));
+  --folder-color3: hsl(  217 44% 96% / var(--folder-alpha));
+  --folder-color4: hsl(  347 71% 80% / var(--folder-alpha));
+  --folder-color5: hsl(  342 80% 76% / var(--folder-alpha));
+  --folder-color6: hsl(  344 61% 58% / var(--folder-alpha));
 }
 body.theme-genshin-希格雯.theme-light{
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg:#4d68df;
-  --text-title-h1: #89c4f8;
-  --text-title-h2: #aad4f8;
-  --text-title-h3: #c5dbff;
-  --text-title-h4: #f0a7b7;
-  --text-title-h5: #f390ae;
-  --text-title-h6: #f1698e;
+  --text-highlight-bg:hsl(229, 70%, 59%);
+  --text-title-h1: hsl(208 89% 75%);
+  --text-title-h2: hsl(208 85% 82%);
+  --text-title-h3: hsl(217 99% 89%);
+  --text-title-h4: hsl(347 71% 80%);
+  --text-title-h5: hsl(342 80% 76%);
+  --text-title-h6: hsl(344 83% 68%);
+  --folder-color1: hsl( 208 89% 75% / var(--folder-alpha));
+  --folder-color2: hsl( 208 85% 82% / var(--folder-alpha));
+  --folder-color3: hsl( 217 99% 89% / var(--folder-alpha));
+  --folder-color4: hsl( 347 71% 80% / var(--folder-alpha));
+  --folder-color5: hsl( 342 80% 76% / var(--folder-alpha));
+  --folder-color6: hsl( 344 83% 68% / var(--folder-alpha));
 }
 
 body.theme-genshin-砂糖.theme-dark,
 body.theme-genshin-砂糖.theme-light{
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg:#4d68df;
-  --text-title-h1: #4d68df;
-  --text-title-h2: #92afe6;
-  --text-title-h3: #ffffff;
-  --text-title-h4: #deeecf;
-  --text-title-h5: #7ba28c;
-  --text-title-h6: #487d6c;
+  --text-highlight-bg:hsl(229, 70%, 59%);
+  --text-title-h1: hsl(229 70% 59%);
+  --text-title-h2: hsl(219 63% 74%);
+  --text-title-h3: hsl(0   0%  99%);
+  --text-title-h4: hsl(91  48% 87%);
+  --text-title-h5: hsl(146 17% 56%);
+  --text-title-h6: hsl(161 27% 39%);
+  --folder-color1: hsl( 229 70% 59% / var(--folder-alpha));
+  --folder-color2: hsl( 219 63% 74% / var(--folder-alpha));
+  --folder-color3: hsl( 0   0%  99% / var(--folder-alpha));
+  --folder-color4: hsl( 91  48% 87% / var(--folder-alpha));
+  --folder-color5: hsl( 146 17% 56% / var(--folder-alpha));
+  --folder-color6: hsl( 161 27% 39% / var(--folder-alpha));
 }
 body.theme-genshin-砂糖.theme-light{
   --theme-color: hsl(245, 78%, 65%);
-  --text-highlight-bg:#6a83f58c;
-  --text-title-h1: #7c94ff;
-  --text-title-h2: #9fc1ff;
-  --text-title-h3: #d4f5b5;
-  --text-title-h4: #cef0ae;
-  --text-title-h5: #a7dfbf;
-  --text-title-h6: #6dbda3;
+  --text-highlight-bg:hsla(229, 87%, 69%, 0.549);
+  --text-title-h1: hsl(229 100% 74%);
+  --text-title-h2: hsl(219 100% 81%);
+  --text-title-h3: hsl(91  76%  84%);
+  --text-title-h4: hsl(91  69%  81%);
+  --text-title-h5: hsl(146 47%  76%);
+  --text-title-h6: hsl(161 38%  58%);
+  --folder-color1: hsl( 229 100% 74% / var(--folder-alpha));
+  --folder-color2: hsl( 219 100% 81% / var(--folder-alpha));
+  --folder-color3: hsl( 91  76%  84% / var(--folder-alpha));
+  --folder-color4: hsl( 91  69%  81% / var(--folder-alpha));
+  --folder-color5: hsl( 146 47%  76% / var(--folder-alpha));
+  --folder-color6: hsl( 161 38%  58% / var(--folder-alpha));
 }
 
 
@@ -318,12 +440,18 @@ body.theme-suzume-no-tojimari.theme-dark,
 body.theme-suzume-no-tojimari.theme-light{
   --theme-color: hsl(245, 75%, 63%);
   --text-highlight-bg: hsl(214, 86%, 57%);
-  --text-title-h1: hsl(214, 86%, 57%);
-  --text-title-h2: hsl(220, 67%, 63%);
-  --text-title-h3: hsl(250, 43%, 71%);
-  --text-title-h4: hsl(309, 39%, 71%);
-  --text-title-h5: hsl(24, 87%, 71%);
-  --text-title-h6: hsl(46, 96%, 72%);
+  --text-title-h1: hsl(214 86% 57%);
+  --text-title-h2: hsl(220 67% 63%);
+  --text-title-h3: hsl(250 43% 71%);
+  --text-title-h4: hsl(309 39% 71%);
+  --text-title-h5: hsl(24  87% 71%);
+  --text-title-h6: hsl(46  96% 72%);
+  --folder-color1: hsl( 214 86% 57% / var(--folder-alpha));
+  --folder-color2: hsl( 220 67% 63% / var(--folder-alpha));
+  --folder-color3: hsl( 250 43% 71% / var(--folder-alpha));
+  --folder-color4: hsl( 309 39% 71% / var(--folder-alpha));
+  --folder-color5: hsl( 24  87% 71% / var(--folder-alpha));
+  --folder-color6: hsl( 46  96% 72% / var(--folder-alpha));
 }
 
 
@@ -331,13 +459,19 @@ body.theme-suzume-no-tojimari.theme-light{
 body.theme-jay.theme-dark,
 body.theme-jay.theme-light{
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg: #af6435;
-  --text-title-h1: #3b9191;
-  --text-title-h2: #46966f;
-  --text-title-h3: #fcdda4;
-  --text-title-h4: #e8b063;
-  --text-title-h5: #c46d37;
-  --text-title-h6: #af6435;
+  --text-highlight-bg: hsl(23, 54%, 45%);
+  --text-title-h1: hsl(180 42% 40%);
+  --text-title-h2: hsl(151 36% 43%);
+  --text-title-h3: hsl(39  94% 82%);
+  --text-title-h4: hsl(35  74% 65%);
+  --text-title-h5: hsl(23  56% 49%);
+  --text-title-h6: hsl(23  54% 45%);
+  --folder-color1: hsl( 180 42% 40% / var(--folder-alpha));
+  --folder-color2: hsl( 151 36% 43% / var(--folder-alpha));
+  --folder-color3: hsl( 39  94% 82% / var(--folder-alpha));
+  --folder-color4: hsl( 35  74% 65% / var(--folder-alpha));
+  --folder-color5: hsl( 23  56% 49% / var(--folder-alpha));
+  --folder-color6: hsl( 23  54% 45% / var(--folder-alpha));
 }
 body.theme-jay.theme-light{
   --theme-color: hsl(245, 75%, 63%);
@@ -351,13 +485,19 @@ body.theme-rainbow.theme-dark,
 body.theme-rainbow.theme-light{
   --theme-color: hsl(245, 75%, 63%);
   --text-highlight-bg: hsla(258, 100%, 51%, 0.781);
-  --text-title-h1: hsl(0, 100%, 50%);
-  --text-title-h2: hsl(40, 100%, 50%);
-  --text-title-h3: hsl(80, 100%, 50%);
-  --text-title-h4: hsl(120, 100%, 50%);
-  --text-title-h5: hsl(170, 100%, 50%);
-  --text-title-h6: hsl(200, 100%, 50%);
-  --text-title-h7: hsl(240, 100%, 50%);
+  --text-title-h1: hsl(0   100% 50%);
+  --text-title-h2: hsl(40  100% 50%);
+  --text-title-h3: hsl(80  100% 50%);
+  --text-title-h4: hsl(120 100% 50%);
+  --text-title-h5: hsl(170 100% 50%);
+  --text-title-h6: hsl(200 100% 50%);
+  --text-title-h7: hsl(240 100% 50%);
+  --folder-color1: hsl( 0   100% 50% / var(--folder-alpha));
+  --folder-color2: hsl( 40  100% 50% / var(--folder-alpha));
+  --folder-color3: hsl( 80  100% 50% / var(--folder-alpha));
+  --folder-color4: hsl( 120 100% 50% / var(--folder-alpha));
+  --folder-color5: hsl( 170 100% 50% / var(--folder-alpha));
+  --folder-color6: hsl( 200 100% 50% / var(--folder-alpha));
 }
 
 
@@ -365,13 +505,19 @@ body.theme-rainbow.theme-light{
 body.theme-Nord-Aurora.theme-dark,
 body.theme-Nord-Aurora.theme-light{
   --theme-color: hsl(245, 75%, 63%);
-  --text-highlight-bg: #6c96c0d0;
-  --text-title-h1: #BF616A;
-  --text-title-h2: #D08770;
-  --text-title-h3: #EBCB8B;
-  --text-title-h4: #A3BE8C;
-  --text-title-h5: #B48EAD;
-  --text-title-h6: #b8bcc5;
+  --text-highlight-bg: hsla(210, 40%, 59%, 0.816);
+  --text-title-h1: hsl(354 42% 56%);
+  --text-title-h2: hsl(14  51% 63%);
+  --text-title-h3: hsl(40  71% 73%);
+  --text-title-h4: hsl(92  28% 65%);
+  --text-title-h5: hsl(311 20% 63%);
+  --text-title-h6: hsl(222 10% 75%);
+  --folder-color1: hsl( 354 42% 56% / var(--folder-alpha));
+  --folder-color2: hsl( 14  51% 63% / var(--folder-alpha));
+  --folder-color3: hsl( 40  71% 73% / var(--folder-alpha));
+  --folder-color4: hsl( 92  28% 65% / var(--folder-alpha));
+  --folder-color5: hsl( 311 20% 63% / var(--folder-alpha));
+  --folder-color6: hsl( 222 10% 75% / var(--folder-alpha));
 }
 body.theme-Nord-Aurora.theme-light{
   --text-title-h6: #989ba1;
@@ -387,7 +533,7 @@ body.theme-testing.theme-light{
 
 
 
-/* 副配色 ------------------------------------ */
+/* 副配色 -------------------------------------------------------------------- */
 
 
 
@@ -442,7 +588,7 @@ body.secondary-theme-testing.theme-light{
 
 
 
-/* 代码配色 --------------------------------- */
+/* 代码配色 ----------------------------------------------------------------- */
 
 
 /* idea 默认 dark 风格 */
@@ -534,6 +680,9 @@ code[class*="language-"] {
 } */
 
 
+/* 优化项  -----------------------------------------------------------------  */
+
+
 /* 图片边框：黑色边框、添加圆角边框、添加阴影效果、修改边框颜色为白色 */
 img {
   border: 1px solid black;
@@ -563,17 +712,103 @@ img {
   --line-height-headers: 2;
 }
 
+/* 隐藏附件文件夹 */
+div[data-path$='_assets'], 
+div[data-path$='_assets'] + div.nav-folder-children 
+{
+	display: none;
+}
+
+/* 左边栏 */
+.nav-file-title, .nav-folder-title {
+  /* font-size: 15px; */
+  color: #757e8a;
+}
+
+
+
+/* 可选项  -----------------------------------------------------------------  */
+
 
 /* 左边栏横向滚动 */
-.nav-files-container {
+body.left-roll .nav-files-container {
   display: flex;
   overflow-x: auto; 
   white-space: nowrap; 
 }
 
 
+/* 文件夹配色 */
+
+:root {
+  --folder-alpha: 0.2;
+}
+
+/* 文件夹配色-简单 */
+body.folder-simple .nav-folder-title{
+  background-color: var(--folder-color0);
+}
+
+/* 文件夹配色-跟随主题 */
+body.folder-follow-theme .nav-folder-title{
+  background-color: var(--folder-color0);
+}
+
+body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+2) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title {
+    background-color: var(--folder-color1);
+}
+
+body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+3) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title {
+    background-color: var(--folder-color2);
+}
+
+body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+4) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title {
+    background-color: var(--folder-color3);
+}
+
+body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+5) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title {
+    background-color: var(--folder-color4);
+}
+
+body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+6) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title {
+    background-color: var(--folder-color5);
+}
+
+body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+7) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title,
+body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title {
+    background-color: var(--folder-color6);
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* 结束  ---------------------------------  */
 
 
 
@@ -609,6 +844,7 @@ img {
 } */
 
 
+/* 主题色应用 */
 
 /* headings preview-view */
 
@@ -707,7 +943,6 @@ a:hover,
 }
 
 
-
 /* #tag */
 a.tag {
   color: var(--tag-color);
@@ -717,7 +952,6 @@ a.tag {
   color: var(--tag-color);
   text-decoration: underline;
 }
-
 
 
 /* Blockquotes */
@@ -739,8 +973,6 @@ a.tag {
   border-width: 0px 0px 0px 3px;
   background-color: var(--background-primary);
 }
-
-
 
 
 pre[class*="language-"] {
@@ -796,15 +1028,6 @@ code[class*="language-"] {
 }
 
 
-/* .nav-file-title, .nav-folder-title {
-    font-size: 15px;
-} */
-
-.nav-file-title,
-.nav-folder-title {
-  color: #757e8a;
-}
-
  
 .footnotes p {
   margin: 0;
@@ -813,10 +1036,4 @@ code[class*="language-"] {
 .frontmatter-container .tag,
 .frontmatter-container .frontmatter-alias {
   margin: 0;
-}
-
-
-div[data-path='0attachments'],
-div[data-path='0attachments']+div.nav-folder-children {
-  display: none;
 }

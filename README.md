@@ -1,3 +1,5 @@
+# README
+
 ## Dark Clarity Theme
 
 **Dark Clarity**，一款 obsidian 的主题。
@@ -6,9 +8,14 @@
 
 主要以 **高辨识度**、且 h1~h6 标题 **有主题色** 为主。
 
-以 [Dark Moss](https://github.com/sergey900553/obsidian_githublike_theme) 部分内容为基底进行调整，并**兼容浅色**模式。
+以 [Dark Moss](https://github.com/sergey900553/obsidian_githublike_theme) 部分内容为基底进行调整，并且进行了多处优化：
 
-支持 Style Setting 插件，可自主选择 `主题配色`、`副配色`、`代码配色`。
+  - 多款配色选择
+  - 浅色模式时的配色
+  - 优化辨识度（粗体明显、图片边框、引用块去斜体）
+  - 更多可选的优化功能
+
+### 相关配置
 
 #### 多款主题配色
 
@@ -25,13 +32,19 @@
 
 #### 代码配色
 
-- jetbrains dark 同款配色（idea、goland）
+- jetbrains 同款配色（IDEA/GoLand）
+
+#### 可选优化功能
+
+- 左边栏横向滚动
+- 左边栏文件夹配色
 
 ## 展示
 
 ### 支持 Style Setting 配置
 
-可选空，则主题不生效
+**更多配置详见应用内 Style Setting 配置**
+
 
 ![](images/styleSetting.png)
 
@@ -44,6 +57,10 @@
 ### 左边栏滚动
 
 ![](images/左边栏滚动.gif)
+
+### 左边栏文件夹配色（可选）
+
+![](images/左边栏文件夹配色.png)
 
 ## 主题配色
 
@@ -119,3 +136,7 @@
 不安装影响不大，煮豆黑体是为了兼容蝌蚪符号，详见下图的符号：
 
 ![基于darkMoss调整](images/基于darkMoss调整.png)
+
+### 希望加入配色
+
+提 issue，并把对应的 H1~H6 的颜色代码贴上来哦~ 如果配色优秀将添加进主题中~
