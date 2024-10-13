@@ -114,6 +114,16 @@ settings:
     default: true
     type: class-toggle
   - 
+      id: left-roll-min-width
+      title: 左边栏横向滚动最小宽度
+      description: 横向滚动子元素的最小宽度
+      type: variable-number-slider
+      default: 250
+      min: 0
+      max: 1000
+      step: 1
+      format: px
+  - 
     id: folder-color11
     title: 文件夹配色
     description: 是否开启左边栏(文件列表)的文件夹配色
@@ -215,6 +225,7 @@ body .modal {
   /* 代码字体 */
   --font-monospace: 'JetBrains Mono NL', 'JetBrains Mono',Consolas, Monaco,"等距更纱黑体 SC", monospace ;
 
+  /* --left-roll-min-width: 250px; */
   /* 文件夹配色 */
   --folder-color0: hsl( 214 21% 31% / var(--folder-alpha));
 }
@@ -735,9 +746,10 @@ body.left-roll .nav-files-container {
   display: flex;
   overflow-x: auto; 
   white-space: nowrap; 
-  min-width: 200px; /* 设置子元素的最小宽度为200px */
 }
-
+body.left-roll .nav-files-container > * {
+  min-width: var(--left-roll-min-width); 
+}
 
 /* 文件夹配色 */
 
