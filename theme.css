@@ -146,9 +146,9 @@ settings:
 */
 
 
-:root {
+/* :root {
   --default-font: "Segoe UI", "Arial", "Tahoma", "Helvetica", sans-serif;
-}
+} */
 body .modal {
   border-radius: 18px;
 }
@@ -219,7 +219,8 @@ body .modal {
 
   /* 默认字体 */
   /* font-family: '煮豆黑体', '微软雅黑', "Segoe UI", sans-serif; */
-  --default-font: '煮豆黑体', '微软雅黑', "Segoe UI", sans-serif;
+  font-family:'煮豆黑体', '微软雅黑', "Segoe UI", "Arial", "Tahoma", "Helvetica", sans-serif;
+  /* --default-font: '煮豆黑体', '微软雅黑', "Segoe UI", "Arial", "Tahoma", "Helvetica", sans-serif; */
   font-feature-settings: 'ss02' 1;
 
   /* 代码字体 */
@@ -232,7 +233,7 @@ body .modal {
 
 
 
-/* 主配色  -------------------------------------------------------------------   */
+/* ---------------------------------------------  主配色  ---------------------------------------------   */
 
 
 /* 原神心海配色1 */
@@ -544,7 +545,7 @@ body.theme-testing.theme-light{
 
 
 
-/* 副配色 -------------------------------------------------------------------- */
+/* ---------------------------------------------  副配色 --------------------------------------------- */
 
 
 
@@ -738,10 +739,10 @@ div[data-path$='_assets'] + div.nav-folder-children
 
 
 
-/* 可选项  -----------------------------------------------------------------  */
+/* ---------------------------------------------  可选项  ---------------------------------------------  */
 
 
-/* 左边栏横向滚动 */
+/* --------------------------------------------- 左边栏横向滚动 */
 body.left-roll .nav-files-container {
   display: flex;
   overflow-x: auto; 
@@ -751,7 +752,7 @@ body.left-roll .nav-files-container > * {
   min-width: var(--left-roll-min-width); 
 }
 
-/* 文件夹配色 */
+/* --------------------------------------------- 文件夹配色 */
 
 :root {
   --folder-alpha: 0.2;
@@ -827,7 +828,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-c
 
 
 
-/* 结束  ---------------------------------  */
+/* ---------------------------------------------  结束  ---------------------------------------------  */
 
 
 
