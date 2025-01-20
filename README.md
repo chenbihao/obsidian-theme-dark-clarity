@@ -118,7 +118,7 @@
 
 - 界面：左边栏横向滚动
 
-- 字体：启用煮豆黑体的“蝌蚪形逗号”
+- 字体：默认启用煮豆黑体的 “蝌蚪形逗号”
 - 文本：**粗体** 更明显
 - 图片：加上了边框，清晰边界
 - 引用块：去掉 *斜体*
@@ -131,9 +131,11 @@
 
 ### 字体
 
-需要手动安装系统字体：[煮豆黑体](https://github.com/Buernia/Zhudou-Sans)、[JetBrains Mono](https://www.jetbrains.com/lp/mono)
+无需安装的字体：[煮豆黑体](https://github.com/Buernia/Zhudou-Sans)
 
-不安装影响不大，煮豆黑体是为了兼容蝌蚪符号，详见下图的符号：
+手动安装的字体：[JetBrains Mono](https://www.jetbrains.com/lp/mono)
+
+煮豆黑体已集成至主题内部，默认开启蝌蚪符号增加可辨识度，详见下图的符号：
 
 ![基于darkMoss调整](images/基于darkMoss调整.png)
 
