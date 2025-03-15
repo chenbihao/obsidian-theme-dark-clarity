@@ -1,3 +1,8 @@
+---
+create: 2024-12-02 23:13:50
+modify: 2025-03-15 21:57:35
+tags: 
+---
 # README
 
 ## Dark Clarity Theme
@@ -44,7 +49,6 @@
 ### 支持 Style Setting 配置
 
 **更多配置详见应用内 Style Setting 配置**
-
 
 ![](images/styleSetting.png)
 
@@ -106,9 +110,51 @@
 
 ### 代码配色
 
-####  jetbrains IDE 同款配色
+#### jetbrains IDE 同款配色
 
-![jetbrains1](images/jetbrains1.png)
+![jetbrains](images/code-jetbrains.png)
+
+#### BlueTopaz-default
+
+> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+
+![](images/Pasted%20image%2020250315213447.png)
+
+#### BlueTopaz-material-palenight
+
+> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+
+![](images/code-BlueTopaz-material-palenight.png)
+
+#### BlueTopaz-solarized
+
+> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+
+![](images/code-BlueTopaz-solarized.png)
+
+#### BlueTopaz-Gruvbox-dark
+
+> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+
+![](images/code-BlueTopaz-Gruvbox-dark.png)
+
+#### BlueTopaz-dracula
+
+> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+
+![](images/code-BlueTopaz-dracula.png)
+
+#### BlueTopaz-monokai
+
+> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+
+![](images/Pasted%20image%2020250315214928.png)
+
+#### BlueTopaz-sublime
+
+> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+
+![](images/code-BlueTopaz-sublime.png)
 
 ## 其他
 
@@ -118,7 +164,7 @@
 
 - 界面：左边栏横向滚动
 
-- 字体：默认启用煮豆黑体的 “蝌蚪形逗号”
+- 字体：启用煮豆黑体的“蝌蚪形逗号”
 - 文本：**粗体** 更明显
 - 图片：加上了边框，清晰边界
 - 引用块：去掉 *斜体*
@@ -131,11 +177,9 @@
 
 ### 字体
 
-无需安装的字体：[煮豆黑体](https://github.com/Buernia/Zhudou-Sans)
+需要手动安装系统字体：[煮豆黑体](https://github.com/Buernia/Zhudou-Sans)、[JetBrains Mono](https://www.jetbrains.com/lp/mono)
 
-手动安装的字体：[JetBrains Mono](https://www.jetbrains.com/lp/mono)
-
-煮豆黑体已集成至主题内部，默认开启蝌蚪符号增加可辨识度，详见下图的符号：
+不安装影响不大，煮豆黑体是为了兼容蝌蚪符号，详见下图的符号：
 
 ![基于darkMoss调整](images/基于darkMoss调整.png)
 

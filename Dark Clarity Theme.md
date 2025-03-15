@@ -1,35 +1,43 @@
+---
+create: 2024-07-30 11:48:01
+modify: 2024-12-02 22:50:06
+tags: 
+---
 #教程 #obsidian #theme
 
 # h1 Heading 标题
+
 ## h2 Heading 标题
+
 ### h3 Heading 标题
+
 #### h4 Heading 标题
+
 ##### h5 Heading 标题
+
 ###### h6 Heading 标题
 
-这是 ==高亮== **加粗** 文本
-
-
+这是 ==高亮高亮== **加粗** 文本
 
 使用 [煮豆黑体](https://github.com/Buernia/Zhudou-Sans) 并且开启 蝌蚪形逗号（ss02），~~balabala 划掉~~
 
-↓ 开启 ss02 避免无法辨别 ：“中文‘单双’引号”。
+↓ 开启 （《 ss02  》）  避免无法辨别 ：“中文‘单双’引号”。
+
 ![](images/无法识别.png)
 
 ↓ 添加图片边框避免无法识别图片边界
 ![Minion|50](https://octodex.github.com/images/minion.png)
 
-
-
 **副配色**：
 
-#教程 #obsidian #theme
+#教程 #obsidian
 
 Blockquotes 区块引用：
 
 > Blockquotes 去掉斜体，使字体更加清晰易辨识
 >
  >> ...by usin
+>>
 > > > ...or with spaces between arrows...
 
 [欢迎](欢迎.md)  [[未创建]]  [链接文本](https://github.com/chenbihao/)    https://github.com/chenbihao/
@@ -37,9 +45,13 @@ Blockquotes 区块引用：
 
 
 
+测试 Tag 插件：
 
+#theme #_theme   #the_me
 
+#_教程  #_指南 #_参考
 
+#_公司/阿里  #_公司/百度
 
 
 
@@ -48,14 +60,14 @@ Blockquotes 区块引用：
 ![Minion|50](https://octodex.github.com/images/minion.png)
 ![Stormtroopocat|50](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
-
-
 ![[styleSetting.png]]
+
 ## query
 
 ```query
 Inline
 ```
+
 ## Code 代码
 
 ### Inline 内联
@@ -273,46 +285,4 @@ X-Request-Id: {{$random.integer(10, 1000)}}
 < ./input-file.json
 ```
 
-
-
 ## 空
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -7,13 +7,13 @@ settings:
   - 
       id: my-info-text
       title: Dark Clarity Theme
-      description: "一款 obsidian 的主题 \n\n 
-      主要以 **高辨识度**、且 h1~h6 标题 **有主题色** 为主 \n\n
-      参考 Dark Moss Theme 部分作为基底，并且进行了多处优化： \n\n
-      - 多款配色选择 \n
-      - 浅色模式时的配色 \n
-      - 优化辨识度（粗体明显、图片边框、引用块去斜体）\n 
-      - 更多可选的优化功能（左边栏横向滚动、左边栏文件夹配色）
+      description: "> 一款 obsidian 的主题 \n\n 
+      > 主要以 **高辨识度**、且 h1~h6 标题 **有主题色** 为主 \n\n
+      > 参考 Dark Moss Theme 部分作为基底，并且进行了多处优化： \n\n
+      > - 多款配色选择 \n
+      > - 浅色模式时的配色 \n
+      > - 优化辨识度（粗体明显、图片边框、引用块去斜体）\n 
+      > - 更多可选的优化功能（左边栏横向滚动、左边栏文件夹配色）
       "
       type: info-text
       markdown: true
@@ -22,11 +22,11 @@ settings:
       title: 主题配色选择
       type: heading
       level: 1
-      collapsed: true
+      collapsed: false
   - 
     id: main-theme
-    title: 主题配色
-    description: （标题、高亮等）
+    title: 主题配色（标题、高亮等）
+    description: 
     type: class-select
     allowEmpty: false
     default: theme-genshin-sangonomiya-kokomi1
@@ -72,8 +72,8 @@ settings:
         value: theme-testing
   - 
     id: secondary-theme
-    title: 副配色
-    description: （超链、tag 等）
+    title: 副配色（超链、tag 等）
+    description: 
     type: class-select
     allowEmpty: false
     default: secondary-theme-green-blue
@@ -89,8 +89,8 @@ settings:
         value: secondary-theme-testing
   - 
     id: code-theme
-    title: 代码配色
-    description: （代码高亮方案）
+    title: 代码配色（代码高亮方案）
+    description: 
     type: class-select
     allowEmpty: false
     default: code-theme-jetbrains
@@ -99,6 +99,24 @@ settings:
         label: jetbrains 同款配色
         value: code-theme-jetbrains
       -
+        label: from BlueTopaz-default
+        value: code-theme-BlueTopaz-default
+      -
+        label: from BlueTopaz-material-palenight
+        value: code-theme-BlueTopaz-material-palenight
+      -
+        label: from BlueTopaz-solarized
+        value: code-theme-BlueTopaz-solarized
+      -
+        label: from BlueTopaz-Gruvbox-dark
+        value: code-theme-BlueTopaz-Gruvbox-dark
+      -
+        label: from BlueTopaz-monokai
+        value: code-theme-BlueTopaz-monokai
+      -
+        label: from BlueTopaz-sublime
+        value: code-theme-BlueTopaz-sublime
+      -
         label: 制作中...
         value: code-theme-testing
   - 
@@ -106,16 +124,16 @@ settings:
       title: 可选项
       type: heading
       level: 1
-      collapsed: true
+      collapsed: false
   - 
     id: left-roll
-    title: 左边栏横向滚动
+    title: 左边栏-横向滚动
     description: 是否开启左边栏(文件列表)的横向滚动条功能，使长文本完全显示
     default: true
     type: class-toggle
   - 
       id: left-roll-min-width
-      title: 左边栏横向滚动最小宽度
+      title: 左边栏-横向滚动-最小宽度
       description: 横向滚动子元素的最小宽度
       type: variable-number-slider
       default: 250
@@ -125,8 +143,8 @@ settings:
       format: px
   - 
     id: folder-color11
-    title: 文件夹配色
-    description: 是否开启左边栏(文件列表)的文件夹配色
+    title: 左边栏-文件夹配色
+    description: 是否开启左边栏（文件列表）的文件夹配色
     type: class-select
     allowEmpty: false
     default: folder-off
@@ -136,7 +154,7 @@ settings:
       - folder-follow-theme
   - 
       id: folder-alpha
-      title: 文件夹配色透明度
+      title: 左边栏-文件夹配色-透明度
       description: 用于配置文件夹配色的透明度
       type: variable-number-slider
       default: 0.2
@@ -187,9 +205,9 @@ body .modal {
 
 /* .theme-dark,.theme-light {} */
 
-/* 字体 */
 * {
   --gray-1: #5C6370;
+  --gray-2: #abb2bf;
   --red: #ff0f44;
   --peach: #ff5555;
   --aqua: #078480;
@@ -206,7 +224,7 @@ body .modal {
   --aquadark: #0b4c5e;
   --lila: #c90481;
   --green-light: #42accd;
-
+ 
   --font-weight-title: 600;
   --line-height-headers: 1;
   --file-line-width: 1000px;
@@ -595,8 +613,7 @@ body.secondary-theme-testing.theme-light{
 
 
 
-
-/* 代码配色 ----------------------------------------------------------------- */
+/* --------------------------------------------- 代码配色 */
 
 
 /* idea 默认 dark 风格 */
@@ -620,6 +637,214 @@ body.code-theme-jetbrains.theme-light{
   --my-value: #1750eb;        /* value 颜色 #1750eb */
   --my-inline-code: var(--cyan); /* 内联代码颜色 */
   --code-normal: #080808;
+}
+
+/* BlueTopaz 主题代码风格 */
+body.code-theme-BlueTopaz-default.theme-dark {
+  --background-code: #1111118c;
+  --code-variable: #db7c84;
+  --code-normal: #ebdbb2;
+  --code-comment: #068a5e;
+  --code-function: #ab9a02;
+  --code-important: #cac685;
+  --code-keyword: #478fee;
+  --code-operator: #a89984;
+  --code-property: #a0c7e9;
+  --code-punctuation: #abb2bf;
+  --code-string: #abd58e;
+  --code-tag: #db7c84;
+  --code-value: #abd58e;
+  --code-string-2: #d6b87f;
+  --code-active-line-background-color: #111111eb;
+}
+body.code-theme-BlueTopaz-default.theme-light {
+  --code-keyword: #3bd4da;
+  --code-tag: #c594d4;
+  --code-function: #db7c84;
+  --code-important: #3bd4da;
+  --code-active-line-background-color: hsla(var(--interactive-accent-hsl), 0.05);
+  --code-string-2: #da904b;
+  --code-variable-2: #b74ff3;
+  --code-meta: #797979;
+}
+
+
+
+body.code-theme-BlueTopaz-material-palenight.theme-dark,
+body.code-theme-BlueTopaz-material-palenight.theme-light {
+  /* material: palenight theme */
+  --code-keyword: #c792ea;
+  --code-atom: #f78c6c;
+  --code-number: #ff5370;
+  --code-type: #decb6b;
+  --code-def: #82aaff;
+  --code-property: #c792ea;
+  --code-variable: #f07178;
+  --code-variable-2: #eeffff;
+  --code-variable-3: #f07178;
+  --code-definition: #82aaff;
+  --code-callee: #89ddff;
+  --code-qualifier: #decb6b;
+  --code-operator: #89ddff;
+  --code-hr: #98e342;
+  --code-link: #696d70;
+  --code-error-bg: #ff5370;
+  --code-header: #da7dae;
+  --code-builtin: #ffcb6b;
+  --code-meta: #ffcb6b;
+  --code-matching-bracket: #ffffff;
+  --code-tag: #ff5370;
+  --code-tag-in-comment: #ff5370;
+  --code-string-2: #f07178;
+  --code-bracket: #ff5370;
+  --code-comment: #676e95;
+  --code-string: #c3e88d;
+  --code-attribute: #c792ea;
+  --code-attribute-in-comment: #c792ea;
+  --background-code: #292d3eba;
+  --code-active-line-background-color: #353a50;
+  --code-normal: #d4d4d4;
+}
+
+body.code-theme-BlueTopaz-solarized.theme-dark,
+body.code-theme-BlueTopaz-solarized.theme-light {
+  /* solarized */
+  --code-keyword: #cb4b16;
+  --code-atom: #d33682;
+  --code-number: #d33682;
+  --code-type: #6c71c4;
+  --code-def: #2aa198;
+  --code-property: #2aa198;
+  --code-variable: #839496;
+  --code-variable-2: #b58900;
+  --code-variable-3: #6c71c4;
+  --code-function: #82aaff;
+  --code-definition: #82aaff;
+  --code-callee: #89ddff;
+  --code-qualifier: #b58900;
+  --code-operator: #6c71c4;
+  --code-hr: #98e342;
+  --code-link: #93a1a1;
+  --code-error-bg: #ff5370;
+  --code-header: #586e75;
+  --code-builtin: #d33682;
+  --code-meta: #859900;
+  --code-matching-bracket: #859900;
+  --code-tag: #93a1a1;
+  --code-tag-in-comment: #ff5370;
+  --code-string-2: #b58900;
+  --code-bracket: #cb4b16;
+  --code-comment: #586e75;
+  --code-string: #859900;
+  --code-attribute: #2aa198;
+  --code-attribute-in-comment: #c792ea;
+  --background-code: #fdf6e3e1;
+  --code-active-line-background-color: #fffcf4;
+  --code-normal: #657b83;
+}
+
+body.code-theme-BlueTopaz-Gruvbox-dark.theme-dark,
+body.code-theme-BlueTopaz-Gruvbox-dark.theme-light {
+  --code-selection-color: #fbf1c7;
+  --code-selection-background: #7c6f6456;
+  --code-active-line-background-color: #533c3cee;
+  --background-code: #1d2021c6;
+  --code-variable: #a0c7e9;
+  --code-normal: #ebdbb2;
+  --code-comment: #a89984;
+  --code-function: #fabd2f;
+  --code-important: #fb4934;
+  --code-keyword: #fb4934;
+  --code-operator: #a89984;
+  --code-property: #fb4934;
+  --code-punctuation: #a89984;
+  --code-string: #b8bb26;
+  --code-tag: #fabd2f;
+  --code-value: #d3869b;
+  --code-meta: #568060;
+}
+
+
+body.code-theme-BlueTopaz-dracula.theme-dark {
+  --background-code: #282a36c0;
+  --code-normal: #f8f8f2;
+  --code-comment: #6272a4;
+  --code-string: #f1fa8c;
+  --code-string-2: #ffb86c;
+  --code-number: #bd93f9;
+  --code-variable: #50fa7b;
+  --code-variable-2: #ffffff;
+  --code-def: #50fa7b;
+  --code-operator: #8be9fd;
+  --code-keyword: #ff79c6;
+  --code-atom: #bd93f9;
+  --code-meta: #f8f8f2;
+  --code-tag: #ff79c6;
+  --code-attribute: #50fa7b;
+  --code-qualifier: #50fa7b;
+  --code-property: #66d9ef;
+  --code-builtin: #50fa7b;
+  --code-variable-3: #dc8e3b;
+  --code-type: #ffb86c;
+  --code-active-line-background-color: #414458;
+  --code-matchingbracket: #ffffff;
+}
+body.code-theme-BlueTopaz-dracula.theme-light {
+  --background-code: #e6e6e671;
+  --code-normal: var(--tex-normal);
+  --code-string: #d1945b;
+  --code-string-2: #da904b;
+  --code-variable: #3bd4da;
+  --code-variable-2: #b74ff3;
+  --code-meta: #797979;
+  --code-active-line-background-color: #dee1b9a5;
+  --code-comment: #6272a4;
+  --code-number: #bd93f9;
+  --code-def: #50fa7b;
+  --code-operator: #8be9fd;
+  --code-keyword: #ff79c6;
+  --code-atom: #bd93f9;
+  --code-tag: #ff79c6;
+  --code-attribute: #50fa7b;
+  --code-qualifier: #50fa7b;
+  --code-property: #66d9ef;
+  --code-builtin: #50fa7b;
+  --code-variable-3: #dc8e3b;
+  --code-type: #ffb86c;
+  --code-matchingbracket: #ffffff;
+}
+
+
+body.code-theme-BlueTopaz-monokai.theme-dark{
+  --background-code: #272822d9;
+  --code-normal: #F8F8F2;
+  --code-keyword:#F92772;
+  --code-value: #AE81FF;
+  --code-string-2:#E6DB74;
+  --code-comment: #75715E;
+  --code-active-line-background-color: #17013f9f;
+}
+body.code-theme-BlueTopaz-monokai.theme-light{
+  --background-code: #F8F8F2;
+  --code-normal: #272822d9;
+  --code-keyword:#F92772;
+  --code-value: #AE81FF;
+  --code-string-2:#E6DB74;
+  --code-comment: #aca47a;
+  --code-active-line-background-color: #17013f9f;
+}
+
+
+body.code-theme-BlueTopaz-sublime.theme-dark,
+body.code-theme-BlueTopaz-sublime.theme-light {
+  --code-operator: #9a6e3a;
+  --code-variable: #5180de;
+  --code-keyword: #EA5E66;
+  --code-string: #40bf31;
+  --code-function: #F9AE58;
+  --code-string-2: #F9AE58;
+  --code-type: #F9AE58;
+  --code-def: #F9AE58;
 }
 
 
@@ -734,7 +959,6 @@ div[data-path$='_assets'] + div.nav-folder-children
 }
 
 
-
 /* ---------------------------------------------  可选项  ---------------------------------------------  */
 
 
@@ -750,9 +974,20 @@ body.left-roll .nav-files-container > * {
 
 /* --------------------------------------------- 文件夹配色 */
 
+/* 图标颜色 */
+/* 
+.workspace-leaf-content .collapse-icon svg.svg-icon {
+  color: var(--theme-color);
+} 
+*/
 :root {
   --folder-alpha: 0.2;
 }
+.nav-files-container {
+  /* padding: var(--size-4-1) var(--size-4-3) var(--size-4-6) var(--size-4-3); */
+  padding: var(--size-4-1) var(--size-4-2) var(--size-4-2) var(--size-4-2);
+}
+
 
 /* 文件夹配色-简单 */
 body.folder-simple .nav-folder-title{
@@ -769,7 +1004,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title {
     background-color: var(--folder-color1);
-    border-radius: 5px; margin-top: 2px; margin-left: 2px;
+    border-radius: 5px; 
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+3) .nav-folder-title,
@@ -777,7 +1012,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title {
     background-color: var(--folder-color2);
-    border-radius: 5px; margin-top: 2px; margin-left: 2px;
+    border-radius: 5px; 
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+4) .nav-folder-title,
@@ -785,7 +1020,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title {
     background-color: var(--folder-color3);
-    border-radius: 5px; margin-top: 2px; margin-left: 2px;
+    border-radius: 5px; 
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+5) .nav-folder-title,
@@ -793,7 +1028,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title {
     background-color: var(--folder-color4);
-    border-radius: 5px; margin-top: 2px; margin-left: 2px;
+    border-radius: 5px; 
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+6) .nav-folder-title,
@@ -801,7 +1036,7 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title {
     background-color: var(--folder-color5);
-    border-radius: 5px; margin-top: 2px; margin-left: 2px;
+    border-radius: 5px; 
 }
 
 body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+7) .nav-folder-title,
@@ -809,8 +1044,144 @@ body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title,
 body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title {
     background-color: var(--folder-color6);
-    border-radius: 5px; margin-top: 2px; margin-left: 2px;
+    border-radius: 5px; 
 }
+
+
+
+/* 文件夹配色- from Sailkites Rainbow */
+
+/*   */
+.testfoldercolor .start .nav-folder:nth-child(14n + 2) {
+  --folder-color: rgb(211, 47, 47);   /* Tiefes Rot */
+  --folder-color: rgb(217, 100, 11);  /* Tiefes Orange */
+  --folder-color: rgb(199, 138, 28);  /* Tiefes Ocker */
+  --folder-color: rgb(209, 182, 31);  /* Tiefes Gelb */
+  --folder-color: rgb(24, 140, 6);    /* Tiefes Grün */
+  --folder-color: rgb(30, 179, 166);  /* Teal */
+  --folder-color: rgb(57, 129, 219);  /* Blau */
+  --folder-color: rgb(52, 165, 217);  /* Hellblau */
+  --folder-color: rgb(131, 137, 235); /* Blau mit Violettstich */
+  --folder-color: rgb(156, 104, 247); /* Violett */
+  --folder-color: rgb(203, 166, 247); /* Veilchen */
+  --folder-color: rgb(76, 199, 170);  /* Milchgrün */
+  --folder-color: rgb(162, 212, 61);  /* Linde */
+  --folder-color: rgb(128, 158, 68);  /* Olive */
+}
+
+/* 文件夹配色- from Coloured Folders */
+.testfoldercolor .start .nav-folder:nth-child(16n + 2) {
+ --Fold0: #d32f2fCC;
+ --Fold1: #c2185bCC;
+ --Fold2: #7b1fa2CC;
+ --Fold3: #512da8CC;
+ --Fold4: #303f9fCC;
+ --Fold5: #1976d2CC;
+ --Fold6: #0288d1CC;
+ --Fold7: #0097a7CC;
+ --Fold8: #00796bCC;
+ --Fold9: #388e3cCC;
+ --FoldA: #689f38CC;
+ --FoldB: #afb42bCC;
+ --FoldC: #f9ab25CC;
+ --FoldD: #ff8f00CC;
+ --FoldE: #ef6c00CC;
+ --FoldF: #d84315CC;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* A callout for a folder structure
+from : https://forum.obsidian.md/t/a-callout-for-a-folder-structure/61366
+ */
+ .callout[data-callout=folder i] {
+  --list-indent: 0em;
+  --indentation-guide-color: transparent;
+  overflow: scroll;
+}
+.callout[data-callout=folder i] .list-bullet {
+  display: none;
+}
+.callout[data-callout=folder i] ul {
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+.callout[data-callout=folder i] li {
+  --list-indent: 1.5em;
+  list-style-type: none;
+  font-family: var(--font-monospace);
+  white-space: nowrap;
+}
+.callout[data-callout=folder i] li li {
+  position: relative;
+  box-sizing: border-box;
+}
+.callout[data-callout=folder i] li li::before,
+.callout[data-callout=folder i] li li::after {
+  content: "";
+  position: absolute;
+  left: -1em;
+  background: var(--list-marker-color);
+}
+.callout[data-callout=folder i] li li::before {
+  top: 0.85em;
+  width: 10px;
+  height: 1.5px;
+  margin: auto;
+}
+.callout[data-callout=folder i] li li::after {
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  height: 100%;
+}
+.callout[data-callout=folder i] li li:last-child::after {
+  height: 0.85em;
+}
+.callout[data-callout=folder i] li .list-collapse-indicator {
+  position: absolute;
+  left: -2em;
+  margin: 0;
+}
+.callout[data-callout=folder i] li em {
+  opacity: 0.5;
+  font-family: var(--font-text);
+}
+.callout[data-callout=folder i] li code {
+  font-size: 1em;
+  font-family: var(--font-monospace);
+  font-style: normal !important;
+  background: none;
+  white-space: pre;
+  margin: 0;
+  padding: 0;
+}
+.callout[data-callout=folder i] li mark {
+  font-style: italic;
+  color: #d3a3e5;
+}
+.callout[data-callout=folder i] .callout-content {
+  overflow-x: visible;
+}
+
+
+
+
+
+
 
 
 
@@ -1055,6 +1426,7 @@ code[class*="language-"] {
 }
 
 
+/* FONT : Zhudou Sans Normal SS02 */
 
 @font-face { 
   font-family: "Zhudou Sans Normal SS02";
