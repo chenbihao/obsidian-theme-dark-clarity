@@ -1,8 +1,3 @@
----
-create: 2024-12-02 23:13:50
-modify: 2025-03-15 21:57:35
-tags: 
----
 # README
 
 ## Dark Clarity Theme
@@ -110,51 +105,43 @@ tags:
 
 ### 代码配色
 
-#### jetbrains IDE 同款配色
+#### jetbrains IDE
 
 ![jetbrains](images/code-jetbrains.png)
 
-#### BlueTopaz-default
+#### BlueTopaz
 
-> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+> - BlueTopaz 相关配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
 
-![](images/Pasted%20image%2020250315213447.png)
+![](images/code-BlueTopaz1.png)
 
-#### BlueTopaz-material-palenight
+![](images/code-BlueTopaz2.png)
 
-> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+### 左边栏配色
 
-![](images/code-BlueTopaz-material-palenight.png)
+#### 文件夹配色 - 无
 
-#### BlueTopaz-solarized
+![](images/文件夹配色-无.png)
 
-> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+#### 文件夹配色 - 简单
 
-![](images/code-BlueTopaz-solarized.png)
+![](images/文件夹配色-简单.png)
 
-#### BlueTopaz-Gruvbox-dark
+#### 文件夹配色 - 跟随主题（theme follow）
 
-> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+> 会跟随主题的配色
 
-![](images/code-BlueTopaz-Gruvbox-dark.png)
+![](images/文件夹配色-跟随主题.png)
 
-#### BlueTopaz-dracula
+![](images/文件夹配色-跟随主题2.png)
 
-> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
+#### 文件夹配色 -from Sailkites Rainbow
 
-![](images/code-BlueTopaz-dracula.png)
+![](images/文件夹配色-from%20Sailkites%20Rainbow.png)
 
-#### BlueTopaz-monokai
+#### 文件夹配色 -from Coloured Folders
 
-> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
-
-![](images/Pasted%20image%2020250315214928.png)
-
-#### BlueTopaz-sublime
-
-> 注：BlueTopaz 前缀的代码配色来自：[Blue-Topaz_Obsidian-css](https://github.com/PKM-er/Blue-Topaz_Obsidian-css)
-
-![](images/code-BlueTopaz-sublime.png)
+![](images/文件夹配色-from%20Coloured%20Folders.png)
 
 ## 其他
 

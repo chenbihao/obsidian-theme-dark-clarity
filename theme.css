@@ -28,7 +28,7 @@ settings:
     title: 主题配色（标题、高亮等）
     description: 
     type: class-select
-    allowEmpty: false
+    allowEmpty: true
     default: theme-genshin-sangonomiya-kokomi1
     options:
       -
@@ -75,7 +75,7 @@ settings:
     title: 副配色（超链、tag 等）
     description: 
     type: class-select
-    allowEmpty: false
+    allowEmpty: true
     default: secondary-theme-green-blue
     options:
       -
@@ -92,7 +92,7 @@ settings:
     title: 代码配色（代码高亮方案）
     description: 
     type: class-select
-    allowEmpty: false
+    allowEmpty: true
     default: code-theme-jetbrains
     options:
       -
@@ -110,6 +110,9 @@ settings:
       -
         label: from BlueTopaz-Gruvbox-dark
         value: code-theme-BlueTopaz-Gruvbox-dark
+      -
+        label: from BlueTopaz-dracula
+        value: code-theme-BlueTopaz-dracula
       -
         label: from BlueTopaz-monokai
         value: code-theme-BlueTopaz-monokai
@@ -151,7 +154,9 @@ settings:
     options:
       - folder-off
       - folder-simple
-      - folder-follow-theme
+      - folder-theme-follow
+      - folder-theme-sailkites-rainbow
+      - folder-theme-coloured-folders
   - 
       id: folder-alpha
       title: 左边栏-文件夹配色-透明度
@@ -611,42 +616,224 @@ body.secondary-theme-testing.theme-light{
 }
 
 
-
-
 /* --------------------------------------------- 代码配色 */
 
-
-/* idea 默认 dark 风格 */
-body.code-theme-jetbrains.theme-dark{
-  --my-function: #BCBEC4;     /* 方法颜色 #BCBEC4 56A8F5 */
-  --my-punctuation: var(--text-muted);   /* 注解颜色 #B3AE60 */
-  --my-keyword: #CF8E6D;      /* key 颜色 #CF8E6D */
-  --my-property: #BCBEC4;     /* 变量颜色 #BCBEC4 */
-  --my-string: #72b67b;       /* str 颜色 #6AAB73 */
-  --my-tag: #c5bf6a;          /* tag 颜色 #B3AE60 */
-  --my-value: #4a88cf;        /* value 颜色 #2AACB8 */
-  --my-inline-code: var(--cyan); /* 内联代码颜色 */
+/* -----------------------  代码原生 */
+/* .theme-dark { 
+  --code-function: var(--color-yellow); 
+  --code-punctuation: var(--text-muted); 
+  --code-keyword: var(--color-pink); 
+  --code-property: var(--color-cyan); 
+  --code-string: var(--color-green); 
+  --code-tag: var(--color-red); 
+  --code-value: var(--color-purple); 
+  
+  --code-white-space: pre-wrap;
+  --code-radius: var(--radius-s);
+  --code-size: var(--font-smaller);
+  --code-background: var(--background-primary-alt);
+  --code-normal: var(--text-muted);
+  --code-comment: var(--text-faint);
+  --code-important: var(--color-orange);
+  --code-operator: var(--color-red); 
 }
-body.code-theme-jetbrains.theme-light{
-  --my-function: #000000;     /* 方法颜色  */
-  --my-punctuation: var(--text-muted);   /* 注解颜色  */
-  --my-keyword: #0033b3;      /* key 颜色 #0033b3 */
-  --my-property: #871094;     /* 变量颜色 #871094 */
-  --my-string: #067d17;       /* str 颜色 #067d17 */
-  --my-tag: #0033b3;          /* tag 颜色 # */
-  --my-value: #1750eb;        /* value 颜色 #1750eb */
-  --my-inline-code: var(--cyan); /* 内联代码颜色 */
+*/
+
+.cm-s-obsidian .HyperMD-codeblock{
+  line-height: 1.4;
+}  
+/* 内联代码颜色 */
+.cm-s-obsidian span.cm-inline-code{
+  color: var(--cyan)
+}
+.markdown-rendered code {
+  color: var(--cyan)
+}
+
+/* 防止颜色侵入到代码块里 */
+code[class*="language-"] {
+  color:var(--code-normal);
+  display: block;
+  padding: 0em;
+  overflow: auto;
+}
+/* pre[class*="language-"] {
+  overflow: hidden;
+  color:var(--code-normal);
+} */
+
+
+
+
+/* -----------------------  idea 默认 dark 风格 */
+
+body.code-theme-jetbrains.theme-dark {
+  --code-function: #BCBEC4;
+  --code-punctuation: var(--text-muted);
+  --code-keyword: #CF8E6D;
+  --code-property: #BCBEC4;
+  --code-string: #72b67b;
+  --code-tag: #c5bf6a;
+  --code-value: #4a88cf;
+}
+body.code-theme-jetbrains.theme-light {
+  --code-function: #000000;
+  --code-punctuation: var(--text-muted);
+  --code-keyword: #0033b3;
+  --code-property: #871094;
+  --code-string: #067d17;
+  --code-tag: #0033b3;
+  --code-value: #1750eb;
   --code-normal: #080808;
 }
 
-/* BlueTopaz 主题代码风格 */
+/* -----------------------  BlueTopaz 主题代码风格 */
+
+body[class*="code-theme-BlueTopaz-"] {
+  /* material: palenight theme */
+  --code-keyword: #c792ea;
+  --code-atom: #f78c6c;
+  --code-number: #ff5370;
+  --code-type: #decb6b;
+  --code-def: #82aaff;
+  --code-property: #c792ea;
+  --code-variable: #f07178;
+  --code-variable-2: #53ada3;
+  --code-variable-3: #e7852fe7;
+  --code-definition: #82aaff;
+  --code-callee: #89ddff;
+  --code-qualifier: #decb6b;
+  --code-operator: #89ddff;
+  --code-hr: #98e342;
+  --code-link: #696d70;
+  --code-error-bg: #ff5370;
+  --code-header: #da7dae;
+  --code-builtin: #ffcb6b;
+  --code-meta: #ffcb6b;
+  --code-matching-bracket: #ffffff;
+  --code-tag: #ff5370;
+  --code-tag-in-comment: #ff5370;
+  --code-string-2: #f07178;
+  --code-bracket: #ff5370;
+  --code-comment: #676e95;
+  --code-string: #c3e88d;
+  --code-attribute: #c792ea;
+  --code-attribute-in-comment: #c792ea;
+  --background-code: #292d3e;
+  --code-normal: #d4d4d4;
+  
+  --code-selection-background: #66bbaa59;
+  --code-selection-color: #000000;
+  --code-type: #bf616a;
+  --code-qualifier: #88c0d0;
+  --code-property: #5e81ac;
+  --code-value: #a3be8c;
+  --code-tag: #c74df7;
+  --code-operator: #5e81ac;
+  --code-hr: #7f7f7f;
+  --code-string-2: #08b94e;
+  --code-language: #7f7f7f;
+  --code-attribute: #bf616a;
+  --code-atom: #cc7523;
+  --code-comment: #068a5e;
+}
+
+body[class*="code-theme-BlueTopaz-"].token.class,.token.class-name {
+  color: var(--code-string-2) ;
+}
+body[class*="code-theme-BlueTopaz-"].token.atrule,.token.attr-value,.cm-property,.cm-attribute {
+  color: var(--code-attribute);}
+body[class*="code-theme-BlueTopaz-"] .cm-s-obsidian span.cm-variable {
+  color: var(--code-variable);}
+body[class*="code-theme-BlueTopaz-"] .cm-s-obsidian span.cm-variable-2 {
+  color: var(--code-variable-2);}
+body[class*="code-theme-BlueTopaz-"] .cm-s-obsidian span.cm-variable-3 {
+  color: var(---code-variable-3);}
+body[class*="code-theme-BlueTopaz-"] .token.class,.token.class-name {
+  color: var(--code-string-2) ;}
+body[class*="code-theme-BlueTopaz-"] span.cm-variable + .cm-hmd-codeblock + span.cm-variable {
+  color: var(--code-variable-2);}
+body[class*="code-theme-BlueTopaz-"] span.cm-variable + .cm-hmd-codeblock + span.cm-variable + .cm-hmd-codeblock + span.cm-variable {
+  color: var(--code-variable-3);}
+body[class*="code-theme-BlueTopaz-"] span.cm-type {
+  color: var(--code-keyword);}
+body[class*="code-theme-BlueTopaz-"] span.cm-def {
+  color:var(--code-function);}
+body[class*="code-theme-BlueTopaz-"] .cm-type {
+  color: var(--code-type);}
+body[class*="code-theme-BlueTopaz-"] .token.atrule,.token.attr-value,.cm-property,.cm-attribute {
+  color: var(--code-attribute);}
+body[class*="code-theme-BlueTopaz-"] .cm-qualifier {
+  color: var(--code-qualifier);}
+body[class*="code-theme-BlueTopaz-"] .cm-operator {
+  color:var(--code-operator);}
+body[class*="code-theme-BlueTopaz-"] .cm-hr {
+  color: var(--code-hr);}
+body[class*="code-theme-BlueTopaz-"] .cm-string-2 {
+  color: var(--code-string-2);}
+body[class*="code-theme-BlueTopaz-"] .cm-s-obsidian .cm-hmd-frontmatter.cm-atom,
+.cm-s-obsidian .cm-templater-command.cm-atom,
+.cm-s-obsidian .cm-math.cm-atom,
+.cm-s-obsidian .HyperMD-codeblock .cm-atom,
+.markdown-preview-view pre.cm-s-obsidian .cm-atom {
+  color: var(--code-atom);
+}
+body[class*="code-theme-BlueTopaz-"] .cm-s-obsidian .cm-hmd-frontmatter.cm-meta,
+.cm-s-obsidian .cm-templater-command.cm-meta,
+.cm-s-obsidian .cm-math.cm-meta,
+.cm-s-obsidian .HyperMD-codeblock .cm-meta,
+.markdown-preview-view pre.cm-s-obsidian .cm-meta {
+  color: var(--code-meta);
+}
+body[class*="code-theme-BlueTopaz-"] .cm-s-obsidian .cm-hmd-frontmatter.cm-builtin,
+.cm-s-obsidian .cm-templater-command.cm-builtin,
+.cm-s-obsidian .cm-math.cm-builtin,
+.cm-s-obsidian .HyperMD-codeblock .cm-builtin,
+.markdown-preview-view pre.cm-s-obsidian .cm-builtin,
+.markdown-preview-view pre code span.builtin  {
+  color: var(--code-builtin);
+}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.class {
+  color: var(--code-qualifier);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.function {
+  color: var(--code-function);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.punctuation {
+  color: var(--code-punctuation);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.operator {
+  color: var(--code-operator);
+  background: transparent;}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.entity {
+  color: var(--code-attribute);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.parameter {
+  color: var(--code-property);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.property {
+  color: var(--code-property);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.important {
+  color: var(--code-important);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.attr-name {
+  color: var(--code-tag);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.attr-value {
+  color: var(--code-string);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.builtin {
+  color: var(--code-builtin);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view pre code span.unit {
+  color: var(--code-value);}
+body[class*="code-theme-BlueTopaz-"] .markdown-preview-view  span.token.macro-name {
+  color: var(--code-important);}
+body[class*="code-theme-BlueTopaz-"] span.token.directive-hash {
+  color: var(--code-tag);}
+body[class*="code-theme-BlueTopaz-"] .cm-s-obsidian span.cm-comment {
+  color: var(--code-comment);}
+
+
+
 body.code-theme-BlueTopaz-default.theme-dark {
   --background-code: #1111118c;
   --code-variable: #db7c84;
   --code-normal: #ebdbb2;
-  --code-comment: #068a5e;
-  --code-function: #ab9a02;
-  --code-important: #cac685;
+  --code-comment: #568060;
+  --code-function: #cac685;
+  --code-important: #478fee;
   --code-keyword: #478fee;
   --code-operator: #a89984;
   --code-property: #a0c7e9;
@@ -656,19 +843,22 @@ body.code-theme-BlueTopaz-default.theme-dark {
   --code-value: #abd58e;
   --code-string-2: #d6b87f;
   --code-active-line-background-color: #111111eb;
+  --background-code-2: #4c4c4cb0;
+  --text-color-code: #d58000;
 }
 body.code-theme-BlueTopaz-default.theme-light {
   --code-keyword: #3bd4da;
-  --code-tag: #c594d4;
-  --code-function: #db7c84;
+  --code-tag: #c74df7;
+  --code-function: #bf616a;
   --code-important: #3bd4da;
-  --code-active-line-background-color: hsla(var(--interactive-accent-hsl), 0.05);
-  --code-string-2: #da904b;
+  --code-active-line-background-color: hsla(17, 44%, 32%,0.05);
+  --code-string-2: #cc7523;
   --code-variable-2: #b74ff3;
-  --code-meta: #797979;
+  --code-meta: #7f7f7f;
+  --background-code: #ebebeb71;
+  --background-code-2: #cccccc62;
+  --text-color-code: #e95d00;
 }
-
-
 
 body.code-theme-BlueTopaz-material-palenight.theme-dark,
 body.code-theme-BlueTopaz-material-palenight.theme-light {
@@ -854,65 +1044,6 @@ body.code-theme-testing.theme-light{
 
 
 
-/* 代码原生 */
-/* .theme-dark { 
-  --code-function: var(--color-yellow); 
-  --code-punctuation: var(--text-muted); 
-  --code-keyword: var(--color-pink); 
-  --code-property: var(--color-cyan); 
-  --code-string: var(--color-green); 
-  --code-tag: var(--color-red); 
-  --code-value: var(--color-purple); 
-  
-  --code-white-space: pre-wrap;
-  --code-radius: var(--radius-s);
-  --code-size: var(--font-smaller);
-  --code-background: var(--background-primary-alt);
-  --code-normal: var(--text-muted);
-  --code-comment: var(--text-faint);
-  --code-important: var(--color-orange);
-  --code-operator: var(--color-red); 
-}
-*/
-
-
-.cm-s-obsidian .HyperMD-codeblock{
-  line-height: 1.4;
-}
-
-/* 代码配色 */
-.theme-dark,.theme-light {
-  --code-function: var(--my-function);
-  --code-punctuation: var(--my-punctuation);
-  --code-keyword: var(--my-keyword);
-  --code-property: var(--my-property);
-  --code-string: var(--my-string);
-  --code-tag: var(--my-tag);
-  --code-value: var(--my-value);
-}
-
-/* 内联代码颜色 */
-.cm-s-obsidian span.cm-inline-code{
-  color: var(--my-inline-code);
-}
-.markdown-rendered code {
-  color: var(--my-inline-code);
-}
-
-
-/* 防止颜色侵入到代码块里 */
-code[class*="language-"] {
-  color:var(--code-normal);
-  display: block;
-  padding: 0em;
-  overflow: auto;
-}
-/* pre[class*="language-"] {
-  overflow: hidden;
-  color:var(--code-normal);
-} */
-
-
 /* 优化项  -----------------------------------------------------------------  */
 
 
@@ -989,105 +1120,278 @@ body.left-roll .nav-files-container > * {
 }
 
 
-/* 文件夹配色-简单 */
+/* ------------------------ 文件夹配色-简单 */
 body.folder-simple .nav-folder-title{
   background-color: var(--folder-color0);
 }
 
-/* 文件夹配色-跟随主题 */
-body.folder-follow-theme .nav-folder-title{
-  background-color: var(--folder-color0);
-}
-
-body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+2) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title {
-    background-color: var(--folder-color1);
-    border-radius: 5px; 
-}
-
-body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+3) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title {
-    background-color: var(--folder-color2);
-    border-radius: 5px; 
-}
-
-body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+4) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title {
-    background-color: var(--folder-color3);
-    border-radius: 5px; 
-}
-
-body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+5) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title {
-    background-color: var(--folder-color4);
-    border-radius: 5px; 
-}
-
-body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+6) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title {
-    background-color: var(--folder-color5);
-    border-radius: 5px; 
-}
-
-body.folder-follow-theme .nav-folder-children .nav-folder:nth-child(6n+7) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title,
-body.folder-follow-theme .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title {
-    background-color: var(--folder-color6);
-    border-radius: 5px; 
+/* ------------------------ 文件夹配色-跟随主题 */
+body.folder-theme-follow .nav-folder-title {
+  background-color: var(--folder-color0);}
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder .nav-folder .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder .nav-folder-title {
+  border-radius: 5px;}
+body.folder-theme-follow .nav-folder-children .nav-folder:nth-child(6n+2) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+2) .nav-folder-title {
+  background-color: var(--folder-color1);}
+body.folder-theme-follow .nav-folder-children .nav-folder:nth-child(6n+3) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+3) .nav-folder-title {
+  background-color: var(--folder-color2);}
+body.folder-theme-follow .nav-folder-children .nav-folder:nth-child(6n+4) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+4) .nav-folder-title {
+  background-color: var(--folder-color3);}
+body.folder-theme-follow .nav-folder-children .nav-folder:nth-child(6n+5) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+5) .nav-folder-title {
+  background-color: var(--folder-color4);}
+body.folder-theme-follow .nav-folder-children .nav-folder:nth-child(6n+6) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+6) .nav-folder-title {
+  background-color: var(--folder-color5);}
+body.folder-theme-follow .nav-folder-children .nav-folder:nth-child(6n+7) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(6n+7) .nav-folder-title {
+  background-color: var(--folder-color6);
 }
 
 
 
-/* 文件夹配色- from Sailkites Rainbow */
-
-/*   */
-.testfoldercolor .start .nav-folder:nth-child(14n + 2) {
-  --folder-color: rgb(211, 47, 47);   /* Tiefes Rot */
-  --folder-color: rgb(217, 100, 11);  /* Tiefes Orange */
-  --folder-color: rgb(199, 138, 28);  /* Tiefes Ocker */
-  --folder-color: rgb(209, 182, 31);  /* Tiefes Gelb */
-  --folder-color: rgb(24, 140, 6);    /* Tiefes Grün */
-  --folder-color: rgb(30, 179, 166);  /* Teal */
-  --folder-color: rgb(57, 129, 219);  /* Blau */
-  --folder-color: rgb(52, 165, 217);  /* Hellblau */
-  --folder-color: rgb(131, 137, 235); /* Blau mit Violettstich */
-  --folder-color: rgb(156, 104, 247); /* Violett */
-  --folder-color: rgb(203, 166, 247); /* Veilchen */
-  --folder-color: rgb(76, 199, 170);  /* Milchgrün */
-  --folder-color: rgb(162, 212, 61);  /* Linde */
-  --folder-color: rgb(128, 158, 68);  /* Olive */
+/* ------------------------ 文件夹配色- from Sailkites Rainbow */
+body.folder-theme-sailkites-rainbow {
+  --folder-theme-color1:  hsl( 0   65% 51% / var(--folder-alpha)) ;
+  --folder-theme-color2:  hsl( 26  90% 45% / var(--folder-alpha)) ;
+  --folder-theme-color3:  hsl( 39  75% 45% / var(--folder-alpha)) ;
+  --folder-theme-color4:  hsl( 51  74% 47% / var(--folder-alpha)) ;
+  --folder-theme-color5:  hsl( 112 92% 29% / var(--folder-alpha)) ;
+  --folder-theme-color6:  hsl( 175 71% 41% / var(--folder-alpha)) ;
+  --folder-theme-color7:  hsl( 199 68% 53% / var(--folder-alpha)) ;
+  --folder-theme-color8:  hsl( 213 69% 54% / var(--folder-alpha)) ;
+  --folder-theme-color9:  hsl( 237 72% 72% / var(--folder-alpha)) ;
+  --folder-theme-color10: hsl( 262 90% 69% / var(--folder-alpha)) ;
+  --folder-theme-color11: hsl( 267 84% 81% / var(--folder-alpha)) ;
+  --folder-theme-color12: hsl( 166 52% 54% / var(--folder-alpha)) ;
+  --folder-theme-color13: hsl( 80  64% 54% / var(--folder-alpha)) ;
+  --folder-theme-color14: hsl( 80  40% 44% / var(--folder-alpha)) ;
+  --folder-theme-colorxx: rgb(24, 140, 6);
+  
 }
 
-/* 文件夹配色- from Coloured Folders */
-.testfoldercolor .start .nav-folder:nth-child(16n + 2) {
- --Fold0: #d32f2fCC;
- --Fold1: #c2185bCC;
- --Fold2: #7b1fa2CC;
- --Fold3: #512da8CC;
- --Fold4: #303f9fCC;
- --Fold5: #1976d2CC;
- --Fold6: #0288d1CC;
- --Fold7: #0097a7CC;
- --Fold8: #00796bCC;
- --Fold9: #388e3cCC;
- --FoldA: #689f38CC;
- --FoldB: #afb42bCC;
- --FoldC: #f9ab25CC;
- --FoldD: #ff8f00CC;
- --FoldE: #ef6c00CC;
- --FoldF: #d84315CC;
+body.folder-theme-sailkites-rainbow .nav-folder-title {
+  background-color: var(--folder-color0);}
+
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder .nav-folder .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder .nav-folder-title {
+  border-radius: 5px;}
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+2) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+2) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+2) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+2) .nav-folder-title {
+  background-color: var(--folder-theme-color1);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+3) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+3) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+3) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+3) .nav-folder-title {
+  background-color: var(--folder-theme-color2);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+4) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+4) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+4) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+4) .nav-folder-title {
+  background-color: var(--folder-theme-color3);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+5) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+5) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+5) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+5) .nav-folder-title {
+  background-color: var(--folder-theme-color4);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+6) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+6) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+6) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+6) .nav-folder-title {
+  background-color: var(--folder-theme-color5);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+7) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+7) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+7) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+7) .nav-folder-title {
+  background-color: var(--folder-theme-color6);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+8) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+8) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+8) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+8) .nav-folder-title {
+  background-color: var(--folder-theme-color7);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+9) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+9) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+9) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+9) .nav-folder-title {
+  background-color: var(--folder-theme-color8);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+10) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+10) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+10) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+10) .nav-folder-title {
+  background-color: var(--folder-theme-color9);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+11) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+11) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+11) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+11) .nav-folder-title {
+  background-color: var(--folder-theme-color10);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+12) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+12) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+12) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+12) .nav-folder-title {
+  background-color: var(--folder-theme-color11);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+13) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+13) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+13) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+13) .nav-folder-title {
+  background-color: var(--folder-theme-color12);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+14) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+14) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+14) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+14) .nav-folder-title {
+  background-color: var(--folder-theme-color13);       }
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder:nth-child(14n+15) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder .nav-folder:nth-child(14n+15) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+15) .nav-folder-title,
+body.folder-theme-sailkites-rainbow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(14n+15) .nav-folder-title {
+  background-color: var(--folder-theme-color14);       }
+    
+
+/* ------------------------ 文件夹配色- from Coloured Folders */
+
+body.folder-theme-coloured-folders {
+  --folder-theme-color1:  hsl( 0   65%  51% / var(--folder-alpha)) ;
+  --folder-theme-color2:  hsl( 336 78%  43% / var(--folder-alpha)) ;
+  --folder-theme-color3:  hsl( 282 68%  38% / var(--folder-alpha)) ;
+  --folder-theme-color4:  hsl( 258 58%  42% / var(--folder-alpha)) ;
+  --folder-theme-color5:  hsl( 232 54%  41% / var(--folder-alpha)) ;
+  --folder-theme-color6:  hsl( 210 79%  46% / var(--folder-alpha)) ;
+  --folder-theme-color7:  hsl( 201 98%  41% / var(--folder-alpha)) ;
+  --folder-theme-color8:  hsl( 186 100% 33% / var(--folder-alpha)) ;
+  --folder-theme-color9:  hsl( 173 100% 24% / var(--folder-alpha)) ;
+  --folder-theme-color10: hsl( 123 43%  39% / var(--folder-alpha)) ;
+  --folder-theme-color11: hsl( 92  48%  42% / var(--folder-alpha)) ;
+  --folder-theme-color12: hsl( 62  61%  44% / var(--folder-alpha)) ;
+  --folder-theme-color13: hsl( 38  95%  56% / var(--folder-alpha)) ;
+  --folder-theme-color14: hsl( 34  100% 50% / var(--folder-alpha)) ;
+  --folder-theme-color15: hsl( 27  100% 47% / var(--folder-alpha)) ;
+  --folder-theme-color16: hsl( 14  82%  46% / var(--folder-alpha)) ;
 }
+
+body.folder-theme-coloured-folders .nav-folder-title {
+  background-color: var(--folder-color0);}
+
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder .nav-folder .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder .nav-folder .nav-folder-title,
+body.folder-theme-follow .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder .nav-folder-title {
+  border-radius: 5px;}
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+2) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+2) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+2) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+2) .nav-folder-title {
+  background-color: var(--folder-theme-color1);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+3) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+3) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+3) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+3) .nav-folder-title {
+  background-color: var(--folder-theme-color2);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+4) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+4) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+4) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+4) .nav-folder-title {
+  background-color: var(--folder-theme-color3);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+5) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+5) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+5) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+5) .nav-folder-title {
+  background-color: var(--folder-theme-color4);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+6) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+6) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+6) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+6) .nav-folder-title {
+  background-color: var(--folder-theme-color5);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+7) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+7) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+7) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+7) .nav-folder-title {
+  background-color: var(--folder-theme-color6);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+8) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+8) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+8) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+8) .nav-folder-title {
+  background-color: var(--folder-theme-color7);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+9) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+9) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+9) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+9) .nav-folder-title {
+  background-color: var(--folder-theme-color8);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+10) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+10) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+10) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+10) .nav-folder-title {
+  background-color: var(--folder-theme-color9);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+11) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+11) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+11) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+11) .nav-folder-title {
+  background-color: var(--folder-theme-color10);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+12) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+12) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+12) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+12) .nav-folder-title {
+  background-color: var(--folder-theme-color11);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+13) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+13) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+13) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+13) .nav-folder-title {
+  background-color: var(--folder-theme-color12);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+14) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+14) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+14) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+14) .nav-folder-title {
+  background-color: var(--folder-theme-color13);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+15) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+15) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+15) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+15) .nav-folder-title {
+  background-color: var(--folder-theme-color14);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+16) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+16) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+16) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+16) .nav-folder-title {
+  background-color: var(--folder-theme-color15);       }
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder:nth-child(16n+17) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder .nav-folder:nth-child(16n+17) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+17) .nav-folder-title,
+body.folder-theme-coloured-folders .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder .nav-folder:nth-child(16n+17) .nav-folder-title {
+  background-color: var(--folder-theme-color16);       }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
