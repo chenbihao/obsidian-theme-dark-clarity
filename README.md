@@ -22,7 +22,7 @@
 - 原神系列 * N
 - 新海诚系列
 - 周杰伦系列
-- 闪亮彩虹
+- 彩虹
 - Nord
 
 #### 多款副配色
@@ -33,11 +33,17 @@
 #### 代码配色
 
 - jetbrains 同款配色（IDEA/GoLand）
+- BlueTopaz 主题相关配色 * N
 
 #### 可选优化功能
 
 - 左边栏横向滚动
+	- 宽度
 - 左边栏文件夹配色
+	- 简单
+	- 跟随主题配色
+	- from Sailkites Rainbow
+	- from Coloured Folders
 
 ## 展示
 
