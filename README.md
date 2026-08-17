@@ -1,3 +1,5 @@
+
+
 # README
 
 ## Dark Clarity Theme
@@ -175,7 +177,7 @@
 
 ### 字体
 
-煮豆黑体是为了兼容蝌蚪符号，详见下图的符号：
+[煮豆黑体](https://github.com/Buernia/Zhudou-Sans)是为了兼容蝌蚪符号，详见下图的符号：
 
 ![基于darkMoss调整](images/基于darkMoss调整.png)
 
