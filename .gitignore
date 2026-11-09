@@ -1,0 +1,19 @@
+
+# operating system
+.DS_Store
+
+# IntelliJ project files
+.idea
+
+# other IDE
+.agents/
+.codex/
+.claude/
+.codebuddy/
+.workbuddy/
+.vscode/
+.zed/
+.zcode/
+
+
+

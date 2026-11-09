@@ -247,6 +247,7 @@ body .modal {
   /* font-family: '煮豆黑体', '微软雅黑', "Segoe UI", sans-serif; */
   /* font-family:'煮豆黑体', '微软雅黑', "Segoe UI", "Arial", "Tahoma", "Helvetica", sans-serif; */
   font-family: 'Zhudou Sans Normal SS02', '微软雅黑', "Segoe UI", "OpenSans-Medium", sans-serif;
+  font-feature-settings: "kern" 0;
 
   /* 代码字体 */
   --font-monospace: 'JetBrains Mono NL', 'JetBrains Mono',Consolas, Monaco,"等距更纱黑体 SC", monospace ;
